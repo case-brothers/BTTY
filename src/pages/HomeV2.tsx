@@ -87,7 +87,7 @@ export default function HomeV2() {
                   rel="noopener noreferrer"
                   className="rounded-full bg-brand-green px-8 py-4 text-sm font-semibold text-white transition-colors hover:bg-brand-green-light"
                 >
-                  Get a Free Demo
+                  Book a Free Demo
                 </a>
                 <a
                   href="#video"
@@ -304,7 +304,7 @@ export default function HomeV2() {
               rel="noopener noreferrer"
               className="rounded-full bg-white px-8 py-4 text-sm font-semibold text-brand-dark transition-colors hover:bg-surface-200"
             >
-              Get a Free Demo
+              Book a Free Demo
             </a>
             <Link
               to="/contact"
