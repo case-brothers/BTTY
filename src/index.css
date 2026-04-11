@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Manrope', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+  --font-accent: 'Instrument Serif', serif;
+
+  --color-brand-green: #1d6b43;
+  --color-brand-green-light: #4da16b;
+  --color-brand-green-pale: #dbecdf;
+  --color-brand-dark: #1f241f;
+  --color-brand-black: #121612;
+
+  --color-surface-50: #fffcf7;
+  --color-surface-100: #f7f2ea;
+  --color-surface-200: #eee6d8;
+  --color-surface-300: #ddd0bb;
+
+  --color-text-900: #171b17;
+  --color-text-700: #384137;
+  --color-text-500: #667164;
+  --color-text-400: #8e9788;
+  --color-text-300: #bcc4b8;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(77, 161, 107, 0.1), transparent 28%),
+    radial-gradient(circle at top right, rgba(193, 166, 104, 0.16), transparent 24%),
+    #fffcf7;
+  color: #171b17;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root { min-height: 100vh; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+}
+
+.font-accent {
+  font-family: var(--font-accent);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1d6b43 #eee6d8;
+}
+
+::selection {
+  background: #1d6b43;
+  color: #ffffff;
+}
+
+html { scroll-behavior: smooth; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.65s ease-out forwards; opacity: 0; }
+.delay-1 { animation-delay: 100ms; }
+.delay-2 { animation-delay: 250ms; }
+.delay-3 { animation-delay: 400ms; }
+.delay-4 { animation-delay: 600ms; }
+
+@keyframes floatSlow {
+  from { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -8px, 0); }
+  to { transform: translate3d(0, 0, 0); }
+}
+
+.float-slow { animation: floatSlow 9s ease-in-out infinite; }
