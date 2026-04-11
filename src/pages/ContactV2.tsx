@@ -11,6 +11,16 @@ const services = [
   'Something Else',
 ]
 
+function toUrlEncoded(formData: FormData) {
+  const params = new URLSearchParams()
+
+  for (const [key, value] of formData.entries()) {
+    params.append(key, typeof value === 'string' ? value : value.name)
+  }
+
+  return params.toString()
+}
+
 export default function ContactV2() {
   const [submitted, setSubmitted] = useState(false)
   const [selected, setSelected] = useState<string[]>([])
@@ -30,16 +40,30 @@ export default function ContactV2() {
     const data = new FormData(form)
     data.set('services', selected.join(', '))
     data.set('subject', 'New BTTY inquiry')
+    const customerName = String(data.get('name') ?? '')
+    const customerEmail = String(data.get('email') ?? '')
 
     try {
-      const response = await fetch('/__forms.html', {
+      const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(data as unknown as Record<string, string>).toString(),
+        body: toUrlEncoded(data),
       })
 
       if (!response.ok) {
         throw new Error('Request failed')
+      }
+
+      // Best-effort: send the customer an auto-reply via server-side function.
+      // We don't block the UX if this fails.
+      try {
+        const thankYouUrl = new URL('/api/thank-you', window.location.origin)
+        thankYouUrl.searchParams.set('name', customerName)
+        thankYouUrl.searchParams.set('email', customerEmail)
+
+        await fetch(thankYouUrl.toString(), { method: 'POST' })
+      } catch {
+        // ignore
       }
 
       startTransition(() => {

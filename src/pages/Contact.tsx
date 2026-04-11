@@ -27,12 +27,26 @@ export default function Contact() {
     const data = new FormData(form)
     data.set('services', selected.join(', '))
     data.set('subject', 'New BTTY inquiry')
+    const customerName = String(data.get('name') ?? '')
+    const customerEmail = String(data.get('email') ?? '')
 
-    fetch('/__forms.html', {
+    fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(data as unknown as Record<string, string>).toString(),
-    }).then(() => setSubmitted(true))
+    })
+      .then(async () => {
+        try {
+          await fetch('/api/thank-you', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name: customerName, email: customerEmail }),
+          })
+        } catch {
+          // ignore
+        }
+      })
+      .finally(() => setSubmitted(true))
   }
 
   if (submitted) {

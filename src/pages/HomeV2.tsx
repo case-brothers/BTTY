@@ -153,24 +153,58 @@ export default function HomeV2() {
       <section id="video" className="border-b border-[#e4ece1] bg-[#f7fbf5] py-24">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-green">See how we actually run it</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-green">See what is possible</p>
             <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-text-900 md:text-5xl">
-              Watch the systems, dashboards, and workflows in action.
+              One message. Two delivery formats.
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-text-500">
-              This is not theory. It is the operating stack we built because we needed it ourselves.
+              Start with the original founder video, then see how the same message can be turned into an AI avatar asset you can reuse across the business.
             </p>
           </div>
 
-          <div className="mt-12 overflow-hidden rounded-[2rem] border border-[#dfe8db] bg-white p-4 shadow-[0_30px_90px_rgba(29,107,67,0.08)]">
-            <div className="relative w-full overflow-hidden rounded-[1.5rem]" style={{ paddingBottom: '56.25%' }}>
-              <iframe
-                className="absolute inset-0 h-full w-full"
-                src="https://www.youtube.com/embed/AiUYOkTqeNw?rel=0&modestbranding=1"
-                title="BTTY founder walkthrough"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            <div className="overflow-hidden rounded-[2rem] border border-[#dfe8db] bg-white p-4 shadow-[0_30px_90px_rgba(29,107,67,0.08)]">
+              <div className="mb-4 flex items-center justify-between gap-4 px-2">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-green">Original</p>
+                  <h3 className="mt-2 text-2xl font-bold tracking-[-0.03em] text-text-900">Recorded by Tony</h3>
+                </div>
+                <div className="rounded-full bg-[#edf7ed] px-3 py-1 text-xs font-semibold text-brand-green">Human-led</div>
+              </div>
+              <div className="relative w-full overflow-hidden rounded-[1.5rem]" style={{ paddingBottom: '56.25%' }}>
+                <iframe
+                  className="absolute inset-0 h-full w-full"
+                  src="https://www.youtube.com/embed/tjU-c1d1Eb0?rel=0&modestbranding=1"
+                  title="Original BTTY founder video"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+              <p className="px-2 pb-2 pt-4 text-sm leading-relaxed text-text-500">
+                Your original message, tone, and delivery. This is the source material that makes the AI version feel real instead of generic.
+              </p>
+            </div>
+
+            <div className="overflow-hidden rounded-[2rem] border border-[#dfe8db] bg-white p-4 shadow-[0_30px_90px_rgba(29,107,67,0.08)]">
+              <div className="mb-4 flex items-center justify-between gap-4 px-2">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-green">AI Avatar</p>
+                  <h3 className="mt-2 text-2xl font-bold tracking-[-0.03em] text-text-900">Scaled for reuse</h3>
+                </div>
+                <div className="rounded-full bg-[#edf7ed] px-3 py-1 text-xs font-semibold text-brand-green">Repurposed</div>
+              </div>
+              <div className="relative w-full overflow-hidden rounded-[1.5rem]" style={{ paddingBottom: '56.25%' }}>
+                <iframe
+                  className="absolute inset-0 h-full w-full"
+                  src="https://www.youtube.com/embed/AiUYOkTqeNw?rel=0&modestbranding=1"
+                  title="BTTY AI avatar video"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+              <p className="px-2 pb-2 pt-4 text-sm leading-relaxed text-text-500">
+                The same core message turned into an AI-delivered asset you can reuse for sales, follow-up, onboarding, and content without re-recording every time.
+              </p>
             </div>
           </div>
         </div>
