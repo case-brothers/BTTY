@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const resultCards = [
@@ -51,7 +52,27 @@ const proof = [
   },
 ]
 
+const chatbotPrompts = [
+  'What do you actually build?',
+  'Who is this for?',
+  'How fast can we launch?',
+  'What should I do next?',
+]
+
+const chatbotReplies: Record<string, string> = {
+  'What do you actually build?':
+    'We build practical AI systems for operators: lead follow-up, missed-call text back, CRM workflows, dashboards, reporting, and internal automations that remove repeat admin work.',
+  'Who is this for?':
+    'BTTY is built for owners and operators who are carrying too much manually, especially multi-location businesses, service businesses, and teams that need better visibility without adding more software chaos.',
+  'How fast can we launch?':
+    'Most engagements start with a fast audit and a first working delivery in days, not months. We focus on getting one useful system live quickly, then we improve from there.',
+  'What should I do next?':
+    'Book a free demo and we will tell you plainly whether we can help, what we would build first, and how we would scope it.',
+}
+
 export default function HomeV2() {
+  const [activePrompt, setActivePrompt] = useState(chatbotPrompts[0])
+
   return (
     <>
       <section className="relative overflow-hidden border-b border-[#dfe8db] bg-[linear-gradient(180deg,#f7fbf5_0%,#ffffff_55%,#ffffff_100%)] pt-28">
@@ -282,6 +303,67 @@ export default function HomeV2() {
               alt="Marketing website screenshot"
               className="rounded-[1.8rem] border border-[#dfe8db] bg-white shadow-[0_24px_80px_rgba(29,107,67,0.10)]"
             />
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-[#e4ece1] bg-white py-24">
+        <div className="mx-auto grid max-w-6xl gap-14 px-6 md:grid-cols-[0.9fr_1.1fr] md:items-center">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-green">Ask BTTY AI</p>
+            <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-text-900 md:text-5xl">
+              A live example of the kind of assistant we can build.
+            </h2>
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-text-500">
+              This kind of AI assistant can answer questions, guide customers to the right next step, and keep working after business hours. It is not just a feature on our site. It is proof of what we can install in yours.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              {chatbotPrompts.map((prompt) => (
+                <button
+                  key={prompt}
+                  type="button"
+                  onClick={() => setActivePrompt(prompt)}
+                  className={`rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
+                    activePrompt === prompt
+                      ? 'border-brand-green bg-[#edf7ed] text-brand-green'
+                      : 'border-[#dfe8db] bg-white text-text-700 hover:border-brand-green hover:text-brand-green'
+                  }`}
+                >
+                  {prompt}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-[2rem] border border-[#dfe8db] bg-[#fbfdfb] p-5 shadow-[0_30px_90px_rgba(29,107,67,0.08)]">
+            <div className="rounded-[1.6rem] border border-[#e4ece1] bg-white p-5">
+              <div className="mb-5 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-green text-sm font-black text-white">AI</div>
+                  <div>
+                    <p className="text-sm font-bold text-text-900">BTTY AI</p>
+                    <p className="text-xs text-text-500">Sales and ops assistant demo</p>
+                  </div>
+                </div>
+                <div className="rounded-full bg-[#edf7ed] px-3 py-1 text-xs font-semibold text-brand-green">Live proof</div>
+              </div>
+
+              <div className="space-y-4">
+                <div className="ml-auto max-w-[85%] rounded-[1.4rem] rounded-br-md bg-brand-dark px-4 py-3 text-sm leading-relaxed text-white">
+                  {activePrompt}
+                </div>
+                <div className="max-w-[90%] rounded-[1.4rem] rounded-bl-md bg-[#f3f7f1] px-4 py-3 text-sm leading-relaxed text-text-700">
+                  {chatbotReplies[activePrompt]}
+                </div>
+              </div>
+
+              <div className="mt-5 rounded-[1.2rem] border border-[#e4ece1] bg-[#f8fbf7] px-4 py-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-green">What this proves</p>
+                <p className="mt-2 text-sm leading-relaxed text-text-500">
+                  You can give customers answers faster, qualify interest automatically, and route people to booking or contact without making them wait for office hours.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
