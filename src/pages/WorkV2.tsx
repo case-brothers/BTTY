@@ -1,39 +1,60 @@
-const projects = [
+const proofStats = [
   {
-    name: 'Roly Poly Command Center',
-    category: 'Franchise operations system',
-    description:
-      'A custom command center built to help operators manage orders, visibility, follow-up, and daily decision-making across multiple locations.',
-    outcomes: [
-      'Clearer operating visibility across locations',
-      'Less manual admin and order tracking',
-      'Faster follow-up and better internal coordination',
-    ],
-    image: '/dashboard-screenshot.png',
+    value: '7',
+    label: 'real product screens showing the operating system working across sales, scheduling, invoicing, and AI assistance',
   },
   {
-    name: 'Double Tap by AGlaze',
-    category: 'Marketing and demand capture',
-    description:
-      'A modern marketing site designed to communicate a premium product story, capture attention, and create a better path from traffic to inquiry.',
-    outcomes: [
-      'Sharper positioning and presentation',
-      'Stronger digital credibility',
-      'A better front door for the brand',
-    ],
-    image: '/aglaze-dashboard-1.png',
+    value: '330',
+    label: 'catering accounts managed inside the system with revenue visibility attached',
   },
   {
-    name: 'AGlaze Analytics Dashboard',
-    category: 'Internal visibility tool',
+    value: '$61K',
+    label: 'year-to-date sales shown in the live reporting feed with growth across all stores',
+  },
+]
+
+const spotlightScreens = [
+  {
+    title: 'Dashboard Portal',
+    category: 'Command center',
     description:
-      'An internal dashboard for seeing product performance, sales activity, and business signals in one place so decisions can happen faster.',
-    outcomes: [
-      'Cleaner reporting for leadership',
-      'One place to review business performance',
-      'Less guesswork and better visibility',
-    ],
-    image: '/dashboard-portal.png',
+      'A live owner view with KPIs, store awareness, and Coach Roly guidance so operators can see what matters without jumping between tools.',
+    image: '/screenshots/dashboard-portal.png',
+  },
+  {
+    title: 'Coach Roly',
+    category: 'AI assistant',
+    description:
+      'An embedded AI operator assistant that surfaces what matters today, answers questions, and creates a stronger daily rhythm around the system.',
+    image: '/screenshots/coach-roly.png',
+  },
+]
+
+const galleryScreens = [
+  {
+    title: 'Catering Board',
+    caption: 'Calendar visibility with active customer jobs and planning context.',
+    image: '/screenshots/catering-board.png',
+  },
+  {
+    title: 'Sales Feed',
+    caption: 'Year-to-date sales visibility and location-level performance movement.',
+    image: '/screenshots/sales-analytics.png',
+  },
+  {
+    title: 'Catering Accounts',
+    caption: 'Account tracking tied to revenue so follow-up stays connected to money.',
+    image: '/screenshots/catering-accounts.png',
+  },
+  {
+    title: 'Invoice Builder',
+    caption: 'Structured product selection and invoice generation without manual re-entry.',
+    image: '/screenshots/invoice-builder.png',
+  },
+  {
+    title: 'Marketing Scheduler',
+    caption: 'A multi-platform post planner that keeps publishing organized and visible.',
+    image: '/screenshots/marketing-scheduler.png',
   },
 ]
 
@@ -44,60 +65,68 @@ export default function WorkV2() {
         <div className="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-[1.05fr_0.95fr] md:items-end">
           <div>
             <p className="mb-5 text-xs font-semibold uppercase tracking-[0.18em] text-brand-green">Work</p>
-            <h1 className="max-w-3xl text-4xl font-black leading-[1] tracking-[-0.05em] text-text-900 md:text-6xl">
-              Real systems.
+            <h1 className="max-w-4xl text-4xl font-black leading-[1] tracking-[-0.05em] text-text-900 md:text-6xl">
+              Real product screens.
               <br />
-              Real proof.
+              Real operating proof.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-text-500 md:text-lg">
-              We are not guessing at what businesses need. These are systems we have already built for operations, marketing, and visibility under real-world pressure.
+              These are not placeholder mockups. They are actual screenshots from the systems we built to manage locations, sales visibility, catering workflows, invoicing, publishing, and AI-guided operations.
             </p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-3 md:grid-cols-1">
-            <div className="rounded-[1.6rem] border border-[#e4ece1] bg-white p-5 shadow-[0_18px_50px_rgba(29,107,67,0.06)]">
-              <div className="text-3xl font-black tracking-[-0.04em] text-text-900">3</div>
-              <p className="mt-2 text-sm leading-relaxed text-text-500">core systems shipped across operations, marketing, and reporting</p>
-            </div>
-            <div className="rounded-[1.6rem] border border-[#e4ece1] bg-white p-5 shadow-[0_18px_50px_rgba(29,107,67,0.06)]">
-              <div className="text-3xl font-black tracking-[-0.04em] text-text-900">20+</div>
-              <p className="mt-2 text-sm leading-relaxed text-text-500">locations influenced by the operating systems behind this work</p>
-            </div>
-            <div className="rounded-[1.6rem] border border-[#e4ece1] bg-white p-5 shadow-[0_18px_50px_rgba(29,107,67,0.06)]">
-              <div className="text-3xl font-black tracking-[-0.04em] text-text-900">Fast</div>
-              <p className="mt-2 text-sm leading-relaxed text-text-500">delivery built for owners who need momentum, not months of theory</p>
-            </div>
+            {proofStats.map(({ value, label }) => (
+              <div key={label} className="rounded-[1.6rem] border border-[#e4ece1] bg-white p-5 shadow-[0_18px_50px_rgba(29,107,67,0.06)]">
+                <div className="text-3xl font-black tracking-[-0.04em] text-text-900">{value}</div>
+                <p className="mt-2 text-sm leading-relaxed text-text-500">{label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       <section className="bg-white py-20">
         <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6">
-          {projects.map(({ name, category, description, outcomes, image }) => (
-            <div key={name} className="grid gap-8 rounded-[2rem] border border-[#e4ece1] bg-[#fbfdfb] p-8 shadow-[0_20px_70px_rgba(29,107,67,0.05)] md:grid-cols-[1fr_0.95fr] md:items-center">
+          {spotlightScreens.map(({ title, category, description, image }) => (
+            <div key={title} className="grid gap-8 rounded-[2rem] border border-[#e4ece1] bg-[#fbfdfb] p-8 shadow-[0_20px_70px_rgba(29,107,67,0.05)] md:grid-cols-[0.9fr_1.1fr] md:items-center">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-green">{category}</p>
-                <h2 className="mt-4 text-3xl font-black tracking-[-0.04em] text-text-900 md:text-4xl">{name}</h2>
+                <h2 className="mt-4 text-3xl font-black tracking-[-0.04em] text-text-900 md:text-4xl">{title}</h2>
                 <p className="mt-5 max-w-2xl text-sm leading-relaxed text-text-500">{description}</p>
-
-                <div className="mt-8">
-                  <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-text-400">Outcomes</p>
-                  <div className="flex flex-col gap-3">
-                    {outcomes.map((outcome) => (
-                      <div key={outcome} className="flex items-start gap-3 text-sm text-text-500">
-                        <span className="mt-0.5 text-brand-green">+</span>
-                        <span>{outcome}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
               </div>
 
               <div className="overflow-hidden rounded-[1.75rem] border border-[#dfe8db] bg-white shadow-[0_24px_80px_rgba(29,107,67,0.08)]">
-                <img src={image} alt={name} className="w-full" />
+                <img src={image} alt={title} className="w-full" />
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="border-b border-[#e4ece1] bg-[linear-gradient(180deg,#ffffff_0%,#f7fbf5_100%)] py-24">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="mb-12 max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-green">Inside the system</p>
+            <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-text-900 md:text-5xl">
+              The operating stack, screen by screen.
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-text-500">
+              Each screen below shows a different part of the infrastructure: planning, reporting, account management, invoice creation, publishing, and AI-supported execution.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {galleryScreens.map(({ title, caption, image }) => (
+              <div key={title} className="overflow-hidden rounded-[1.8rem] border border-[#e4ece1] bg-white shadow-[0_20px_70px_rgba(29,107,67,0.06)]">
+                <img src={image} alt={title} className="w-full" />
+                <div className="p-5">
+                  <h3 className="text-xl font-bold tracking-[-0.03em] text-text-900">{title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-text-500">{caption}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
