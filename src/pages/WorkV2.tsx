@@ -33,7 +33,6 @@ const coachRolyReview = {
     'Keeps the operating system conversational, fast, and easier to trust',
     'Turns the Command Center into something people actually want to check',
   ],
-  image: '/screenshots/coach-roly.png',
 }
 
 const galleryScreens = [
@@ -128,8 +127,41 @@ export default function WorkV2() {
               </div>
             </div>
 
-            <div className="overflow-hidden rounded-[1.75rem] border border-[#dfe8db] bg-white shadow-[0_24px_80px_rgba(29,107,67,0.08)]">
-              <img src={coachRolyReview.image} alt="Coach Roly inside the Command Center" className="w-full" />
+            <div className="rounded-[1.75rem] border border-[#dfe8db] bg-white p-5 shadow-[0_24px_80px_rgba(29,107,67,0.08)]">
+              <div className="rounded-[1.5rem] border border-[#e4ece1] bg-[linear-gradient(180deg,#f9fcf8_0%,#ffffff_100%)] p-5">
+                <div className="mb-5 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-green text-sm font-black text-white">CR</div>
+                    <div>
+                      <p className="text-sm font-bold text-text-900">Coach Roly</p>
+                      <p className="text-xs text-text-500">Inside the Command Center</p>
+                    </div>
+                  </div>
+                  <div className="rounded-full bg-[#edf7ed] px-3 py-1 text-xs font-semibold text-brand-green">AI Assistant</div>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="rounded-[1.3rem] rounded-bl-md bg-[#f2f7f1] px-4 py-3 text-sm leading-relaxed text-text-700">
+                    Give me the quick version. Why does this Command Center matter?
+                  </div>
+                  <div className="ml-auto max-w-[92%] rounded-[1.3rem] rounded-br-md bg-brand-dark px-4 py-3 text-sm leading-relaxed text-white">
+                    Because it turns scattered store activity into one operating view. Instead of checking five tools and guessing, the owner sees priorities, momentum, and next actions in one place.
+                  </div>
+                  <div className="rounded-[1.3rem] rounded-bl-md bg-[#f2f7f1] px-4 py-3 text-sm leading-relaxed text-text-700">
+                    And why is that useful day to day?
+                  </div>
+                  <div className="ml-auto max-w-[92%] rounded-[1.3rem] rounded-br-md bg-brand-dark px-4 py-3 text-sm leading-relaxed text-white">
+                    It saves time, reduces missed follow-up, and gives the team a cleaner rhythm. The Command Center makes the business easier to run because the important things stop hiding.
+                  </div>
+                </div>
+
+                <div className="mt-5 rounded-[1.2rem] border border-[#e4ece1] bg-[#f8fbf7] px-4 py-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-green">Coach Roly summary</p>
+                  <p className="mt-2 text-sm leading-relaxed text-text-500">
+                    The Command Center gives owners context, priorities, and visibility in one place so they can act faster and spend less time hunting through disconnected tools.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
