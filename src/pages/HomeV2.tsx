@@ -70,7 +70,7 @@ export default function HomeV2() {
     {
       role: 'assistant',
       content:
-        "I'm Betty, the BTTY AI Assistant. Ask me what we build, who we help, how fast we move, or what the best next step is.",
+        "Hi, I'm Betty. Get it? Better Today Than Yesterday. How can I help you figure out the right next step for your business?",
     },
   ])
   const [draft, setDraft] = useState('')
@@ -371,10 +371,14 @@ export default function HomeV2() {
             <div className="rounded-[1.6rem] border border-[#e4ece1] bg-white p-5">
               <div className="mb-5 flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-green text-sm font-black text-white">AI</div>
+                  <img
+                    src="/betty-ai-assistant.png"
+                    alt="Betty, the BTTY AI assistant"
+                    className="h-12 w-12 rounded-2xl object-cover ring-1 ring-[#dfe8db]"
+                  />
                   <div>
-                    <p className="text-sm font-bold text-text-900">BTTY AI</p>
-                    <p className="text-xs text-text-500">Sales and ops assistant demo</p>
+                    <p className="text-sm font-bold text-text-900">Betty AI</p>
+                    <p className="text-xs text-text-500">BTTY sales and ops assistant</p>
                   </div>
                 </div>
                 <div className="rounded-full bg-[#edf7ed] px-3 py-1 text-xs font-semibold text-brand-green">Live proof</div>
