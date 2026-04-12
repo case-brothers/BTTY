@@ -11,6 +11,19 @@ function getEnv(name: string) {
   return process.env[name]
 }
 
+function getModelName(rawValue: string | undefined) {
+  if (!rawValue) return 'gpt-4.1-mini'
+  const value = rawValue.trim()
+  if (!value) return 'gpt-4.1-mini'
+
+  // If someone accidentally pastes an API key into OPENAI_MODEL, ignore it and use the safe default.
+  if (value.startsWith('sk-')) {
+    return 'gpt-4.1-mini'
+  }
+
+  return value
+}
+
 function isChatMessage(value: unknown): value is ChatMessage {
   if (!value || typeof value !== 'object') return false
   const maybe = value as Record<string, unknown>
@@ -58,7 +71,7 @@ export default async (req: Request) => {
   }
 
   const apiKey = getEnv('OPENAI_API_KEY')
-  const model = getEnv('OPENAI_MODEL') ?? 'gpt-4.1-mini'
+  const model = getModelName(getEnv('OPENAI_MODEL'))
 
   if (!apiKey) {
     return Response.json(
@@ -102,7 +115,7 @@ export default async (req: Request) => {
     console.error('Betty AI request failed:', details)
     return Response.json(
       {
-        error: `Betty debug: ${details}`,
+        error: 'Betty hit a temporary issue. Please book a demo or use the contact page and we will help directly.',
       },
       { status: 502 },
     )
