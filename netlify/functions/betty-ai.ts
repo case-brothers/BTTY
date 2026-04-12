@@ -17,27 +17,6 @@ function isChatMessage(value: unknown): value is ChatMessage {
   return (maybe.role === 'user' || maybe.role === 'assistant') && typeof maybe.content === 'string'
 }
 
-function extractOutputText(payload: any) {
-  if (typeof payload?.output_text === 'string' && payload.output_text.trim()) {
-    return payload.output_text.trim()
-  }
-
-  if (!Array.isArray(payload?.output)) return ''
-
-  for (const item of payload.output) {
-    const content = item?.content
-    if (!Array.isArray(content)) continue
-
-    for (const part of content) {
-      if (typeof part?.text === 'string' && part.text.trim()) {
-        return part.text.trim()
-      }
-    }
-  }
-
-  return ''
-}
-
 const systemPrompt = `You are Betty, the BTTY AI Assistant on btty.ai.
 
 Your job is to help potential customers understand what BTTY does and guide them to the right next step.
@@ -91,22 +70,7 @@ export default async (req: Request) => {
     )
   }
 
-  const input = [
-    {
-      role: 'system',
-      content: [{ type: 'input_text', text: systemPrompt }],
-    },
-    ...history.map((item) => ({
-      role: item.role,
-      content: [{ type: 'input_text', text: item.content }],
-    })),
-    {
-      role: 'user',
-      content: [{ type: 'input_text', text: message }],
-    },
-  ]
-
-  const response = await fetch('https://api.openai.com/v1/responses', {
+  const response = await fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${apiKey}`,
@@ -114,8 +78,22 @@ export default async (req: Request) => {
     },
     body: JSON.stringify({
       model,
-      input,
-      max_output_tokens: 220,
+      temperature: 0.7,
+      max_tokens: 220,
+      messages: [
+        {
+          role: 'system',
+          content: systemPrompt,
+        },
+        ...history.map((item) => ({
+          role: item.role,
+          content: item.content,
+        })),
+        {
+          role: 'user',
+          content: message,
+        },
+      ],
     }),
   })
 
@@ -131,7 +109,7 @@ export default async (req: Request) => {
   }
 
   const payload = await response.json()
-  const reply = extractOutputText(payload)
+  const reply = payload?.choices?.[0]?.message?.content?.trim?.() ?? ''
 
   if (!reply) {
     return Response.json(
