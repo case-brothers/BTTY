@@ -102,7 +102,7 @@ export default async (req: Request) => {
     console.error('Betty AI request failed:', details)
     return Response.json(
       {
-        error: 'Betty hit a temporary issue. Please book a demo or use the contact page and we will help directly.',
+        error: `Betty debug: ${details}`,
       },
       { status: 502 },
     )
