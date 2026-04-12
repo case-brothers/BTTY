@@ -21,14 +21,20 @@ const spotlightScreens = [
       'A live owner view with KPIs, store awareness, and Coach Roly guidance so operators can see what matters without jumping between tools.',
     image: '/screenshots/dashboard-portal.png',
   },
-  {
-    title: 'Coach Roly',
-    category: 'AI assistant',
-    description:
-      'An embedded AI operator assistant that surfaces what matters today, answers questions, and creates a stronger daily rhythm around the system.',
-    image: '/screenshots/coach-roly.png',
-  },
 ]
+
+const coachRolyReview = {
+  category: 'AI assistant',
+  title: 'Coach Roly gives the Command Center a rave review.',
+  review:
+    'This is the kind of screen that makes the whole system feel alive. Instead of logging in and hunting for problems, the owner gets context, priorities, and guidance in one place. That is what the Command Center is supposed to do.',
+  bullets: [
+    'Surfaces what matters today instead of making the owner hunt for it',
+    'Keeps the operating system conversational, fast, and easier to trust',
+    'Turns the Command Center into something people actually want to check',
+  ],
+  image: '/screenshots/coach-roly.png',
+}
 
 const galleryScreens = [
   {
@@ -101,6 +107,31 @@ export default function WorkV2() {
               </div>
             </div>
           ))}
+
+          <div className="grid gap-8 rounded-[2rem] border border-[#d8e8db] bg-[linear-gradient(135deg,#f7fbf5_0%,#edf7ed_100%)] p-8 shadow-[0_24px_80px_rgba(29,107,67,0.08)] md:grid-cols-[0.95fr_1.05fr] md:items-center">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-green">{coachRolyReview.category}</p>
+              <h2 className="mt-4 max-w-3xl text-3xl font-black tracking-[-0.04em] text-text-900 md:text-4xl">
+                {coachRolyReview.title}
+              </h2>
+              <div className="mt-6 rounded-[1.5rem] border border-[#dfe8db] bg-white px-6 py-6 shadow-[0_12px_35px_rgba(29,107,67,0.06)]">
+                <p className="text-lg leading-relaxed text-text-700 md:text-xl">&ldquo;{coachRolyReview.review}&rdquo;</p>
+              </div>
+
+              <div className="mt-8 flex flex-col gap-3">
+                {coachRolyReview.bullets.map((bullet) => (
+                  <div key={bullet} className="flex items-start gap-3 text-sm text-text-600">
+                    <span className="mt-0.5 text-brand-green">+</span>
+                    <span>{bullet}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="overflow-hidden rounded-[1.75rem] border border-[#dfe8db] bg-white shadow-[0_24px_80px_rgba(29,107,67,0.08)]">
+              <img src={coachRolyReview.image} alt="Coach Roly inside the Command Center" className="w-full" />
+            </div>
+          </div>
         </div>
       </section>
 
