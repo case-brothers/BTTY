@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import Header from './components/HeaderV2'
 import Footer from './components/FooterV2'
+import BettyAssistant from './components/BettyAssistant'
 import Home from './pages/HomeV2'
 import About from './pages/AboutV2'
 import Work from './pages/WorkV2'
@@ -46,6 +47,7 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
+      <BettyAssistant />
       <Footer />
     </div>
   )

@@ -1,5 +1,3 @@
-import { useState } from 'react'
-import type { FormEvent } from 'react'
 import { Link } from 'react-router-dom'
 
 const resultCards = [
@@ -60,65 +58,9 @@ const chatbotPrompts = [
   'What should I do next?',
 ]
 
-type ChatMessage = {
-  role: 'user' | 'assistant'
-  content: string
-}
-
 export default function HomeV2() {
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    {
-      role: 'assistant',
-      content:
-        "Hi, I'm Betty. Get it? Better Today Than Yesterday. How can I help you figure out the right next step for your business?",
-    },
-  ])
-  const [draft, setDraft] = useState('')
-  const [isThinking, setIsThinking] = useState(false)
-  const [chatError, setChatError] = useState('')
-
-  async function sendMessage(message: string) {
-    const trimmed = message.trim()
-    if (!trimmed || isThinking) return
-
-    const nextMessages = [...messages, { role: 'user' as const, content: trimmed }]
-    setMessages(nextMessages)
-    setDraft('')
-    setChatError('')
-    setIsThinking(true)
-
-    try {
-      const response = await fetch('/api/betty-ai', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          message: trimmed,
-          history: messages,
-        }),
-      })
-
-      const payload = await response.json()
-
-      if (!response.ok) {
-        throw new Error(typeof payload?.error === 'string' ? payload.error : 'Betty ran into a problem.')
-      }
-
-      const reply =
-        typeof payload?.reply === 'string' && payload.reply.trim()
-          ? payload.reply.trim()
-          : 'Betty is here, but did not return a usable reply. Please try again.'
-
-      setMessages([...nextMessages, { role: 'assistant', content: reply }])
-    } catch (error) {
-      setChatError(error instanceof Error ? error.message : 'Betty hit a temporary issue.')
-    } finally {
-      setIsThinking(false)
-    }
-  }
-
-  async function handleChatSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault()
-    await sendMessage(draft)
+  function openBettyAssistant() {
+    window.dispatchEvent(new Event('open-betty-assistant'))
   }
 
   return (
@@ -358,13 +300,27 @@ export default function HomeV2() {
       <section className="border-b border-[#e4ece1] bg-white py-24">
         <div className="mx-auto grid max-w-6xl gap-14 px-6 md:grid-cols-[0.9fr_1.1fr] md:items-center">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-green">Ask BTTY AI</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-green">Meet Betty AI</p>
             <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-text-900 md:text-5xl">
-              A live example of the kind of assistant we can build.
+              Betty is live on the site and ready to help.
             </h2>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-text-500">
-              This kind of AI assistant can answer questions, guide customers to the right next step, and keep working after business hours. It is not just a feature on our site. It is proof of what we can install in yours.
+              Betty now lives in the lower-right corner of the site as a real assistant. She can answer questions, guide visitors to the next step, and prove the kind of AI experience we can build for your business.
             </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              {chatbotPrompts.map((prompt) => (
+                <div key={prompt} className="rounded-full border border-[#dfe8db] bg-white px-4 py-2 text-sm font-semibold text-text-700">
+                  {prompt}
+                </div>
+              ))}
+            </div>
+            <button
+              type="button"
+              onClick={openBettyAssistant}
+              className="mt-8 rounded-full bg-brand-green px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-green-light"
+            >
+              Open Betty
+            </button>
           </div>
 
           <div className="rounded-[2rem] border border-[#dfe8db] bg-[#fbfdfb] p-5 shadow-[0_30px_90px_rgba(29,107,67,0.08)]">
@@ -374,75 +330,24 @@ export default function HomeV2() {
                   <img
                     src="/betty-ai-assistant.png"
                     alt="Betty, the BTTY AI assistant"
-                    className="h-12 w-12 rounded-2xl object-cover ring-1 ring-[#dfe8db]"
+                    className="h-14 w-14 rounded-2xl object-cover ring-1 ring-[#dfe8db]"
                   />
                   <div>
                     <p className="text-sm font-bold text-text-900">Betty AI</p>
-                    <p className="text-xs text-text-500">BTTY sales and ops assistant</p>
+                    <p className="text-xs text-text-500">Live site assistant</p>
                   </div>
                 </div>
-                <div className="rounded-full bg-[#edf7ed] px-3 py-1 text-xs font-semibold text-brand-green">Live proof</div>
+                <div className="rounded-full bg-[#edf7ed] px-3 py-1 text-xs font-semibold text-brand-green">Now floating sitewide</div>
               </div>
 
-              <div className="mb-5 flex flex-wrap gap-3">
-                {chatbotPrompts.map((prompt) => (
-                  <button
-                    key={prompt}
-                    type="button"
-                    onClick={() => sendMessage(prompt)}
-                    disabled={isThinking}
-                    className="rounded-full border border-[#dfe8db] bg-white px-4 py-2 text-sm font-semibold text-text-700 transition-colors hover:border-brand-green hover:text-brand-green disabled:cursor-not-allowed disabled:opacity-70"
-                  >
-                    {prompt}
-                  </button>
-                ))}
+              <div className="rounded-[1.4rem] bg-[#f3f7f1] px-4 py-4 text-sm leading-relaxed text-text-700">
+                Hi, I&apos;m Betty. Get it? Better Today Than Yesterday. How can I help you figure out the right next step for your business?
               </div>
-
-              <div className="space-y-4">
-                {messages.map((message, index) => (
-                  <div
-                    key={`${message.role}-${index}`}
-                    className={
-                      message.role === 'user'
-                        ? 'ml-auto max-w-[85%] rounded-[1.4rem] rounded-br-md bg-brand-dark px-4 py-3 text-sm leading-relaxed text-white'
-                        : 'max-w-[90%] rounded-[1.4rem] rounded-bl-md bg-[#f3f7f1] px-4 py-3 text-sm leading-relaxed text-text-700'
-                    }
-                  >
-                    {message.content}
-                  </div>
-                ))}
-                {isThinking ? (
-                  <div className="max-w-[90%] rounded-[1.4rem] rounded-bl-md bg-[#f3f7f1] px-4 py-3 text-sm leading-relaxed text-text-500">
-                    Betty is thinking...
-                  </div>
-                ) : null}
-              </div>
-
-              <form onSubmit={handleChatSubmit} className="mt-5">
-                <div className="flex flex-col gap-3 sm:flex-row">
-                  <input
-                    type="text"
-                    value={draft}
-                    onChange={(event) => setDraft(event.target.value)}
-                    placeholder="Ask Betty about BTTY, systems, or next steps"
-                    className="min-w-0 flex-1 rounded-full border border-[#dfe8db] bg-white px-4 py-3 text-sm text-text-900 focus:border-brand-green focus:outline-none"
-                  />
-                  <button
-                    type="submit"
-                    disabled={isThinking || !draft.trim()}
-                    className="rounded-full bg-brand-green px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-green-light disabled:cursor-not-allowed disabled:opacity-70"
-                  >
-                    Send
-                  </button>
-                </div>
-              </form>
-
-              {chatError ? <p className="mt-4 text-sm leading-relaxed text-[#9b4b32]">{chatError}</p> : null}
 
               <div className="mt-5 rounded-[1.2rem] border border-[#e4ece1] bg-[#f8fbf7] px-4 py-4">
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-green">What this proves</p>
                 <p className="mt-2 text-sm leading-relaxed text-text-500">
-                  You can give customers answers faster, qualify interest automatically, and route people to booking or contact without making them wait for office hours.
+                  Visitors do not have to hunt for answers or wait for office hours. Betty can greet them, answer common questions, and route the right people toward a demo or contact conversation.
                 </p>
               </div>
             </div>
