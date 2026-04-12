@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import type { FormEvent } from 'react'
 import { Link } from 'react-router-dom'
 
 const resultCards = [
@@ -59,19 +60,66 @@ const chatbotPrompts = [
   'What should I do next?',
 ]
 
-const chatbotReplies: Record<string, string> = {
-  'What do you actually build?':
-    'We build practical AI systems for operators: lead follow-up, missed-call text back, CRM workflows, dashboards, reporting, and internal automations that remove repeat admin work.',
-  'Who is this for?':
-    'BTTY is built for owners and operators who are carrying too much manually, especially multi-location businesses, service businesses, and teams that need better visibility without adding more software chaos.',
-  'How fast can we launch?':
-    'Most engagements start with a fast audit and a first working delivery in days, not months. We focus on getting one useful system live quickly, then we improve from there.',
-  'What should I do next?':
-    'Book a free demo and we will tell you plainly whether we can help, what we would build first, and how we would scope it.',
+type ChatMessage = {
+  role: 'user' | 'assistant'
+  content: string
 }
 
 export default function HomeV2() {
-  const [activePrompt, setActivePrompt] = useState(chatbotPrompts[0])
+  const [messages, setMessages] = useState<ChatMessage[]>([
+    {
+      role: 'assistant',
+      content:
+        "I'm Betty, the BTTY AI Assistant. Ask me what we build, who we help, how fast we move, or what the best next step is.",
+    },
+  ])
+  const [draft, setDraft] = useState('')
+  const [isThinking, setIsThinking] = useState(false)
+  const [chatError, setChatError] = useState('')
+
+  async function sendMessage(message: string) {
+    const trimmed = message.trim()
+    if (!trimmed || isThinking) return
+
+    const nextMessages = [...messages, { role: 'user' as const, content: trimmed }]
+    setMessages(nextMessages)
+    setDraft('')
+    setChatError('')
+    setIsThinking(true)
+
+    try {
+      const response = await fetch('/api/betty-ai', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: trimmed,
+          history: messages,
+        }),
+      })
+
+      const payload = await response.json()
+
+      if (!response.ok) {
+        throw new Error(typeof payload?.error === 'string' ? payload.error : 'Betty ran into a problem.')
+      }
+
+      const reply =
+        typeof payload?.reply === 'string' && payload.reply.trim()
+          ? payload.reply.trim()
+          : 'Betty is here, but did not return a usable reply. Please try again.'
+
+      setMessages([...nextMessages, { role: 'assistant', content: reply }])
+    } catch (error) {
+      setChatError(error instanceof Error ? error.message : 'Betty hit a temporary issue.')
+    } finally {
+      setIsThinking(false)
+    }
+  }
+
+  async function handleChatSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    await sendMessage(draft)
+  }
 
   return (
     <>
@@ -317,22 +365,6 @@ export default function HomeV2() {
             <p className="mt-6 max-w-xl text-base leading-relaxed text-text-500">
               This kind of AI assistant can answer questions, guide customers to the right next step, and keep working after business hours. It is not just a feature on our site. It is proof of what we can install in yours.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              {chatbotPrompts.map((prompt) => (
-                <button
-                  key={prompt}
-                  type="button"
-                  onClick={() => setActivePrompt(prompt)}
-                  className={`rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
-                    activePrompt === prompt
-                      ? 'border-brand-green bg-[#edf7ed] text-brand-green'
-                      : 'border-[#dfe8db] bg-white text-text-700 hover:border-brand-green hover:text-brand-green'
-                  }`}
-                >
-                  {prompt}
-                </button>
-              ))}
-            </div>
           </div>
 
           <div className="rounded-[2rem] border border-[#dfe8db] bg-[#fbfdfb] p-5 shadow-[0_30px_90px_rgba(29,107,67,0.08)]">
@@ -348,14 +380,60 @@ export default function HomeV2() {
                 <div className="rounded-full bg-[#edf7ed] px-3 py-1 text-xs font-semibold text-brand-green">Live proof</div>
               </div>
 
-              <div className="space-y-4">
-                <div className="ml-auto max-w-[85%] rounded-[1.4rem] rounded-br-md bg-brand-dark px-4 py-3 text-sm leading-relaxed text-white">
-                  {activePrompt}
-                </div>
-                <div className="max-w-[90%] rounded-[1.4rem] rounded-bl-md bg-[#f3f7f1] px-4 py-3 text-sm leading-relaxed text-text-700">
-                  {chatbotReplies[activePrompt]}
-                </div>
+              <div className="mb-5 flex flex-wrap gap-3">
+                {chatbotPrompts.map((prompt) => (
+                  <button
+                    key={prompt}
+                    type="button"
+                    onClick={() => sendMessage(prompt)}
+                    disabled={isThinking}
+                    className="rounded-full border border-[#dfe8db] bg-white px-4 py-2 text-sm font-semibold text-text-700 transition-colors hover:border-brand-green hover:text-brand-green disabled:cursor-not-allowed disabled:opacity-70"
+                  >
+                    {prompt}
+                  </button>
+                ))}
               </div>
+
+              <div className="space-y-4">
+                {messages.map((message, index) => (
+                  <div
+                    key={`${message.role}-${index}`}
+                    className={
+                      message.role === 'user'
+                        ? 'ml-auto max-w-[85%] rounded-[1.4rem] rounded-br-md bg-brand-dark px-4 py-3 text-sm leading-relaxed text-white'
+                        : 'max-w-[90%] rounded-[1.4rem] rounded-bl-md bg-[#f3f7f1] px-4 py-3 text-sm leading-relaxed text-text-700'
+                    }
+                  >
+                    {message.content}
+                  </div>
+                ))}
+                {isThinking ? (
+                  <div className="max-w-[90%] rounded-[1.4rem] rounded-bl-md bg-[#f3f7f1] px-4 py-3 text-sm leading-relaxed text-text-500">
+                    Betty is thinking...
+                  </div>
+                ) : null}
+              </div>
+
+              <form onSubmit={handleChatSubmit} className="mt-5">
+                <div className="flex flex-col gap-3 sm:flex-row">
+                  <input
+                    type="text"
+                    value={draft}
+                    onChange={(event) => setDraft(event.target.value)}
+                    placeholder="Ask Betty about BTTY, systems, or next steps"
+                    className="min-w-0 flex-1 rounded-full border border-[#dfe8db] bg-white px-4 py-3 text-sm text-text-900 focus:border-brand-green focus:outline-none"
+                  />
+                  <button
+                    type="submit"
+                    disabled={isThinking || !draft.trim()}
+                    className="rounded-full bg-brand-green px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-green-light disabled:cursor-not-allowed disabled:opacity-70"
+                  >
+                    Send
+                  </button>
+                </div>
+              </form>
+
+              {chatError ? <p className="mt-4 text-sm leading-relaxed text-[#9b4b32]">{chatError}</p> : null}
 
               <div className="mt-5 rounded-[1.2rem] border border-[#e4ece1] bg-[#f8fbf7] px-4 py-4">
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-green">What this proves</p>
