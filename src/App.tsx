@@ -7,6 +7,8 @@ import Home from './pages/HomeV2'
 import About from './pages/AboutV2'
 import Work from './pages/WorkV2'
 import Contact from './pages/ContactV2'
+import Blog from './pages/BlogV2'
+import BlogPost from './pages/BlogPostV2'
 
 function ScrollManager() {
   const { pathname, hash } = useLocation()
@@ -42,6 +44,8 @@ export default function App() {
       <main className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/about" element={<About />} />
           <Route path="/work" element={<Work />} />
           <Route path="/contact" element={<Contact />} />

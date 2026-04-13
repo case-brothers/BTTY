@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { blogPosts } from '../data/blogPosts'
 
 const resultCards = [
   { value: '20+', label: 'franchise locations touched by systems we built' },
@@ -62,6 +63,8 @@ export default function HomeV2() {
   function openBettyAssistant() {
     window.dispatchEvent(new Event('open-betty-assistant'))
   }
+
+  const featuredBlogPosts = blogPosts.slice(0, 3)
 
   return (
     <>
@@ -351,6 +354,43 @@ export default function HomeV2() {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-[#e4ece1] bg-[linear-gradient(180deg,#ffffff_0%,#f7fbf5_100%)] py-24">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="mb-12 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-3xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-green">Evidence and insight</p>
+              <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-text-900 md:text-5xl">
+                Outside proof that AI-backed businesses are gaining an edge.
+              </h2>
+              <p className="mt-5 text-base leading-relaxed text-text-500">
+                We are not limiting this to things we built ourselves. If the research is credible and the lesson is useful, it belongs in the conversation.
+              </p>
+            </div>
+            <Link to="/blog" className="text-sm font-semibold text-brand-green transition-colors hover:text-brand-green-light">
+              Visit the blog
+            </Link>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {featuredBlogPosts.map((post) => (
+              <Link
+                key={post.slug}
+                to={`/blog/${post.slug}`}
+                className="rounded-[1.8rem] border border-[#e4ece1] bg-white p-7 shadow-[0_18px_50px_rgba(29,107,67,0.05)] transition-transform hover:-translate-y-0.5"
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-green">{post.kicker}</p>
+                <h3 className="mt-4 text-2xl font-bold tracking-[-0.03em] text-text-900">{post.title}</h3>
+                <p className="mt-4 text-sm leading-relaxed text-text-500">{post.excerpt}</p>
+                <div className="mt-5 flex items-center gap-4 text-xs text-text-400">
+                  <span>{post.publishDate}</span>
+                  <span>{post.readTime}</span>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

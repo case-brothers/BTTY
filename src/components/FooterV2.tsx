@@ -33,6 +33,9 @@ export default function FooterV2() {
             <button type="button" onClick={goToServices} className="transition-colors hover:text-brand-green">
               Services
             </button>
+            <Link to="/blog" className="transition-colors hover:text-brand-green">
+              Blog
+            </Link>
             <Link to="/work" className="transition-colors hover:text-brand-green">
               Work
             </Link>

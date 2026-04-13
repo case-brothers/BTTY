@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 const nav = [
   { label: 'Services', to: '/#services' },
+  { label: 'Blog', to: '/blog' },
   { label: 'About', to: '/about' },
   { label: 'Work', to: '/work' },
   { label: 'Contact', to: '/contact' },
