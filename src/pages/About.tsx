@@ -24,12 +24,6 @@ const team = [
     bio: `Tony runs three Roly Poly franchise locations, a holding company, and this agency — while working a full-time job. He built the AI-powered Command Center that automates catering operations across 20+ locations because the tools he needed didn't exist. 15+ years of business operations and automotive finance experience. BTTY exists because Tony kept solving his own problems and realized every operator he knew had the exact same ones.`,
     tags: ['Business Operations', 'Product Strategy', 'AI Systems', 'Franchise Ops'],
   },
-  {
-    name: 'Jared Drake',
-    role: 'Senior Engineer',
-    bio: `15 years of software engineering experience, IU Computer Science. Jared has built systems at enterprise scale and knows the difference between code that looks good in a demo and code that works at 2am on a Tuesday. He's the reason our systems don't break — and the reason they scale.`,
-    tags: ['Full-Stack', 'System Architecture', 'TypeScript', 'Cloud Infrastructure'],
-  },
 ]
 
 export default function About() {
@@ -70,7 +64,7 @@ export default function About() {
                 Tony was duct-taping together spreadsheets, email threads, and disconnected POS data just to answer basic questions about his franchise locations. The software he needed didn't exist. So he built it — then kept building. AI-powered order processing. Automated CRM sequences. Real-time dashboards. Daily diagnostic reports. Systems that run 24/7 so he doesn't have to.
               </p>
               <p className="text-text-500 leading-relaxed mb-6">
-                Jared brought the engineering depth to make these systems production-grade. Together, we built an operations stack that gives us a bird's-eye view of everything — without being on-site, without constant meetings, without manual check-ins.
+                The pressure of daily operations forced these systems to become production-grade. We built an operations stack that gives an owner a bird's-eye view of everything without being on-site, without constant meetings, and without manual check-ins.
               </p>
               <p className="text-text-900 leading-relaxed font-semibold">
                 BTTY is what happens when operators who are stretched thin refuse to accept the status quo and build their way out of it.

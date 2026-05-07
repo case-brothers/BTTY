@@ -1,7 +1,15 @@
 import type { Config } from '@netlify/functions'
 
+type NetlifyGlobal = typeof globalThis & {
+  Netlify?: {
+    env?: {
+      get?: (name: string) => string | undefined
+    }
+  }
+}
+
 function getEnv(name: string) {
-  const netlifyValue = (globalThis as any).Netlify?.env?.get?.(name)
+  const netlifyValue = (globalThis as NetlifyGlobal).Netlify?.env?.get?.(name)
   if (netlifyValue) return netlifyValue
   return process.env[name]
 }
@@ -118,14 +126,14 @@ export default async (req: Request) => {
   thankYouParams.set('subject', 'We got your inquiry')
   thankYouParams.set(
     'text',
-    `Thanks for reaching out to BTTY, ${customerName}. We received your inquiry and Tony or Jared will be in touch within one business day.`,
+    `Thanks for reaching out to BTTY, ${customerName}. We received your inquiry and Tony or the BTTY team will be in touch within one business day.`,
   )
   thankYouParams.set(
     'html',
     `
       <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #1f2937;">
         <p>Hi ${safeName},</p>
-        <p>Thanks for reaching out to BTTY. We received your inquiry and Tony or Jared will review it shortly.</p>
+        <p>Thanks for reaching out to BTTY. We received your inquiry and Tony or the BTTY team will review it shortly.</p>
         <p>We will be in touch within one business day.</p>
         <p>Thanks,<br />BTTY</p>
       </div>

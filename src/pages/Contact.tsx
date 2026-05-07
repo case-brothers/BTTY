@@ -58,7 +58,7 @@ export default function Contact() {
             Got it.
           </h1>
           <p className="text-text-500 leading-relaxed">
-            We'll read through what you sent and get back to you within one business day. No form letters — you'll hear from Tony or Jared directly.
+            We'll read through what you sent and get back to you within one business day. No form letters — you'll hear from Tony or the BTTY team directly.
           </p>
         </div>
       </section>
@@ -195,7 +195,7 @@ export default function Contact() {
                 </p>
                 <div className="flex flex-col gap-6">
                   {[
-                    { step: '01', title: 'We Read It', body: 'Tony or Jared reads your submission the same day. No VA, no bot.' },
+                    { step: '01', title: 'We Read It', body: 'Tony or the BTTY team reads your submission the same day. No VA, no bot.' },
                     { step: '02', title: 'Straight Answer', body: "We'll tell you within 24 hours if we can help and what we'd recommend." },
                     { step: '03', title: '15-Minute Call', body: 'If it makes sense, we hop on a quick call to scope the work. No pitch deck.' },
                     { step: '04', title: 'We Get to Work', body: 'If we agree to move forward, we move fast. First delivery within 2 weeks.' },

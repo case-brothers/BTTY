@@ -281,13 +281,13 @@ export default function Home() {
 
             <div className="flex flex-col gap-6">
               <div className="rounded-2xl overflow-hidden border border-surface-300 shadow-sm">
-                <img src="/team-photo.png" alt="Jared Drake and Tony Case — BTTY founders" className="w-full h-auto" />
+                <img src="/dashboard-portal.png" alt="BTTY dashboard built from real operations" className="w-full h-auto" />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-white border border-surface-300 rounded-xl p-5">
-                  <div className="text-lg font-bold text-text-900">Jared Drake</div>
-                  <div className="text-xs font-semibold uppercase text-brand-green mb-2">Senior Engineer</div>
-                  <p className="text-text-500 text-xs leading-relaxed">15 years engineering. IU CS. Full-stack, cloud, system architecture.</p>
+                  <div className="text-lg font-bold text-text-900">BTTY Systems</div>
+                  <div className="text-xs font-semibold uppercase text-brand-green mb-2">Operator-Built</div>
+                  <p className="text-text-500 text-xs leading-relaxed">AI workflows, dashboards, and follow-up systems built from real operating pressure.</p>
                 </div>
                 <div className="bg-white border border-surface-300 rounded-xl p-5">
                   <div className="text-lg font-bold text-text-900">Tony Case</div>

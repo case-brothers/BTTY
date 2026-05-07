@@ -5,8 +5,16 @@ type ChatMessage = {
   content: string
 }
 
+type NetlifyGlobal = typeof globalThis & {
+  Netlify?: {
+    env?: {
+      get?: (name: string) => string | undefined
+    }
+  }
+}
+
 function getEnv(name: string) {
-  const netlifyValue = (globalThis as any).Netlify?.env?.get?.(name)
+  const netlifyValue = (globalThis as NetlifyGlobal).Netlify?.env?.get?.(name)
   if (netlifyValue) return netlifyValue
   return process.env[name]
 }
@@ -39,8 +47,8 @@ Facts about BTTY:
 - BTTY builds AI automation, dashboards, reporting, operating workflows, and customer-response systems for owners and operators.
 - BTTY is especially useful for multi-location businesses, service businesses, and owners who are tired of running too much manually.
 - Common things BTTY builds include lead follow-up, missed-call text back, CRM workflows, dashboard visibility, reporting, invoicing support, publishing workflows, and AI assistants.
-- BTTY was built by Tony Case and Jared Drake.
-- The best next step for a qualified visitor is to book a free demo or use the contact page.
+- BTTY was built by Tony Case from real operator problems inside active businesses.
+- The best next step for a qualified visitor is to call Betty at 855-642-2889 or use the contact page.
 - Do not invent pricing, guarantees, technical integrations, or case-study numbers beyond what the site already states.
 
 Behavior:
@@ -61,7 +69,7 @@ Conversation style:
 - If a visitor sounds like a fit, say so and invite them to book a demo.
 - If a visitor is vague, ask 1 focused question that helps qualify the situation.
 - If a visitor asks about results, explain the kind of operational leverage BTTY creates without inventing unsupported numbers.
-- If a visitor asks who BTTY is, explain Tony Case and Jared Drake in a concise, credible way.
+- If a visitor asks who BTTY is, explain Tony Case, BTTY, and Call Betty in a concise, credible way.
 - Use light wit sparingly. Betty should feel clever, not cheesy.`
 
 export default async (req: Request) => {

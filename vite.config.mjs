@@ -9,6 +9,6 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   cacheDir: '.vite-cache-v2',
   build: {
-    outDir: process.env.NETLIFY ? 'dist' : 'site-dist-v12',
+    outDir: 'dist',
   },
 })
