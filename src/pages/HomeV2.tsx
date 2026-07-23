@@ -1,71 +1,37 @@
-import { Link } from 'react-router-dom'
-import { blogPosts } from '../data/blogPosts'
-
 const resultCards = [
-  { value: '20+', label: 'franchise locations touched by systems we built' },
-  { value: '24/7', label: 'lead capture, reporting, and follow-up coverage' },
-  { value: '<48h', label: 'average time to first working delivery' },
+  { value: '$197', label: 'a month, everything included. No setup fee, no contract, cancel anytime.' },
+  { value: '48h', label: 'from your info to a free preview of your new website, texted to your phone.' },
+  { value: '9 sec', label: 'for a missed call to get an automatic text back before they dial the next guy.' },
 ]
 
-const outcomes = [
+const included = [
   {
-    title: 'More captured leads',
-    body: 'Missed calls, forms, and inbound messages stop leaking because every inquiry gets an immediate next step.',
+    title: 'A website built for your trade',
+    body: 'Your photos, your reviews, your service area. Built to make the phone ring, not to win design awards.',
   },
   {
-    title: 'More operational visibility',
-    body: 'Owners get a clean view of pipeline, activity, and issues without hunting through five systems.',
+    title: 'Missed-call text-back',
+    body: 'On a roof or under a sink, your missed calls get a text back in seconds. The job stays yours.',
   },
   {
-    title: 'More time back',
-    body: 'Inbox triage, updates, admin handoffs, and repeatable reporting move out of your calendar and into automation.',
-  },
-]
-
-const services = [
-  {
-    title: 'AI Automation Audit',
-    body: 'We identify the exact workflows costing you time, missed revenue, and extra headcount.',
+    title: 'Every lead texts your phone',
+    body: 'Estimate requests do not sit in an inbox. They land on your phone the moment they come in.',
   },
   {
-    title: 'System Build and Installation',
-    body: 'We install the automation, dashboards, and operating logic inside the business.',
+    title: 'Hosting, updates, and changes',
+    body: 'New photos, new services, price changes. Text us what you need and it gets done.',
   },
   {
-    title: 'Ongoing Optimization',
-    body: 'We improve prompts, flows, and reporting after launch so the system keeps getting better.',
-  },
-]
-
-const proof = [
-  {
-    stat: '20+',
-    label: 'locations running inside the Command Center model',
+    title: 'Built to get found on Google',
+    body: 'Set up the way Google expects, so when your town searches your trade, you are in the running.',
   },
   {
-    stat: '3',
-    label: 'core systems live across operations, marketing, and analytics',
+    title: 'No contract. Ever.',
+    body: 'Month to month, and you own your domain. We keep your business by earning it.',
   },
-  {
-    stat: '1',
-    label: 'shared operating view for owners who do not have time to babysit tools',
-  },
-]
-
-const chatbotPrompts = [
-  'What do you actually build?',
-  'Who is this for?',
-  'How fast can we launch?',
-  'What should I do next?',
 ]
 
 export default function HomeV2() {
-  function openBettyAssistant() {
-    window.dispatchEvent(new Event('open-betty-assistant'))
-  }
-
-  const featuredBlogPosts = blogPosts.slice(0, 3)
-
   return (
     <>
       <section className="relative overflow-hidden border-b border-[#dfe8db] bg-[linear-gradient(180deg,#f7fbf5_0%,#ffffff_55%,#ffffff_100%)] pt-28">
@@ -82,16 +48,13 @@ export default function HomeV2() {
           <div className="grid gap-14 md:grid-cols-[1.05fr_0.95fr] md:items-center">
             <div className="fade-up">
               <h1 className="max-w-4xl text-5xl font-black leading-[0.95] tracking-[-0.05em] text-text-900 md:text-7xl">
-                Run your business
+                If Google can&apos;t find you,
                 <br />
-                with the
-                <span className="ml-3 text-brand-green">systems</span>
-                <br />
-                it should already have.
+                <span className="text-brand-green">your customers can&apos;t either.</span>
               </h1>
 
               <p className="mt-8 max-w-2xl text-lg leading-relaxed text-text-500 md:text-xl">
-                We build AI automation, dashboards, and operating workflows for owners who are tired of running everything manually.
+                {'Run the free 60-second scan and see how your business looks to the people searching for what you do. If you do not like the answer, we fix it for $197 a month, and you see your new website before you pay a dime.'}
               </p>
 
               <div className="mt-10 flex flex-wrap gap-4">
@@ -102,17 +65,18 @@ export default function HomeV2() {
                   Get Your Free Business Scan
                 </a>
                 <a
-                  href="#video"
+                  href="#how"
                   className="rounded-full border border-[#d9e8d5] bg-white px-8 py-4 text-sm font-semibold text-text-700 transition-colors hover:border-brand-green hover:text-brand-green"
                 >
                   See How It Works
                 </a>
               </div>
+              <p className="mt-4 text-sm text-text-400">Takes about a minute. No email required to see your score.</p>
 
               <div className="mt-12 flex flex-wrap items-center gap-4 text-sm text-text-500">
-                <div className="rounded-full bg-[#edf7ed] px-4 py-2 font-semibold text-brand-green">Built by operators</div>
-                <div className="rounded-full bg-[#f4f7f3] px-4 py-2">Franchise and service-business focused</div>
-                <div className="rounded-full bg-[#f4f7f3] px-4 py-2">Systems installed fast</div>
+                <div className="rounded-full bg-[#edf7ed] px-4 py-2 font-semibold text-brand-green">No contract, ever</div>
+                <div className="rounded-full bg-[#f4f7f3] px-4 py-2">See your site before you pay</div>
+                <div className="rounded-full bg-[#f4f7f3] px-4 py-2">$197 a month, everything included</div>
               </div>
             </div>
 
@@ -121,14 +85,14 @@ export default function HomeV2() {
                 <div className="rounded-[1.5rem] bg-[linear-gradient(135deg,#1d6b43_0%,#5eb67d_100%)] p-5 text-white">
                   <div className="mb-4 flex items-center justify-between">
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/70">AI Ops Snapshot</p>
-                      <p className="mt-1 text-2xl font-bold">See what needs attention before it becomes a fire.</p>
+                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/70">Your Lead System</p>
+                      <p className="mt-1 text-2xl font-bold">Every call, every lead, one screen.</p>
                     </div>
                     <div className="rounded-full bg-white/12 px-3 py-1 text-xs font-semibold">BTTY</div>
                   </div>
 
                   <div className="overflow-hidden rounded-[1.25rem] border border-white/15 bg-white/6">
-                    <img src="/dashboard-portal.png" alt="BTTY command center dashboard" className="w-full" />
+                    <img src="/dashboard-portal.png" alt="BTTY lead system dashboard" className="w-full" />
                   </div>
                 </div>
 
@@ -146,23 +110,7 @@ export default function HomeV2() {
         </div>
       </section>
 
-      <section className="border-b border-[#e4ece1] bg-white py-16">
-        <div className="mx-auto max-w-6xl px-6">
-          <p className="mb-8 text-center text-xs font-semibold uppercase tracking-[0.18em] text-brand-green">
-            Grow with systems like these owners
-          </p>
-          <div className="grid gap-4 md:grid-cols-3">
-            {proof.map(({ stat, label }) => (
-              <div key={label} className="rounded-[1.6rem] border border-[#e4ece1] bg-[#f9fcf8] px-6 py-7 text-center">
-                <div className="text-4xl font-black tracking-[-0.04em] text-text-900">{stat}</div>
-                <p className="mt-3 text-sm leading-relaxed text-text-500">{label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="video" className="border-b border-[#e4ece1] bg-[#f7fbf5] py-24">
+      <section id="how" className="border-b border-[#e4ece1] bg-[#f7fbf5] py-24">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-green">How It Works</p>
@@ -211,172 +159,26 @@ export default function HomeV2() {
         </div>
       </section>
 
-      <section className="border-b border-[#e4ece1] bg-white py-24">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="mb-14 max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-green">What you get</p>
-            <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-text-900 md:text-5xl">
-              More sales, more control, more time back.
-            </h2>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-3">
-            {outcomes.map(({ title, body }) => (
-              <div key={title} className="rounded-[1.8rem] border border-[#e4ece1] bg-[#f9fcf8] p-8">
-                <h3 className="text-2xl font-bold leading-tight text-text-900">{title}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-text-500">{body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section id="services" className="border-b border-[#e4ece1] bg-white py-24">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mb-14 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-green">How we work</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-green">What $197 A Month Buys</p>
               <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-text-900 md:text-5xl">
-                Three steps to a better operating system.
+                The whole system. One price.
               </h2>
             </div>
             <p className="max-w-xl text-sm leading-relaxed text-text-500">
-              We keep this simple: identify the opportunity, install the system, then improve it based on what the business actually needs.
+              Agencies charge $2,000 a month for less. Website builders leave you doing it yourself. This is the middle that actually works.
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
-            {services.map(({ title, body }, index) => (
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {included.map(({ title, body }) => (
               <div key={title} className="rounded-[1.8rem] border border-[#e4ece1] bg-[#f9fcf8] p-8">
-                <div className="text-sm font-bold text-brand-green">0{index + 1}</div>
-                <h3 className="mt-4 text-2xl font-bold leading-tight text-text-900">{title}</h3>
+                <h3 className="text-xl font-bold leading-tight text-text-900">{title}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-text-500">{body}</p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-b border-[#e4ece1] bg-[linear-gradient(180deg,#ffffff_0%,#f7fbf5_100%)] py-24">
-        <div className="mx-auto grid max-w-6xl gap-14 px-6 md:grid-cols-[0.95fr_1.05fr] md:items-center">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-green">Proof of work</p>
-            <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-text-900 md:text-5xl">
-              Real systems built for real operators.
-            </h2>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-text-500">
-              We built the Roly Poly Command Center to manage multi-location operations, and we built supporting marketing and analytics systems around it. That is the standard we bring into client work.
-            </p>
-            <Link to="/work" className="mt-8 inline-block text-sm font-semibold text-brand-green transition-colors hover:text-brand-green-light">
-              See the work
-            </Link>
-          </div>
-
-          <div className="grid gap-4">
-            <img
-              src="/dashboard-screenshot.png"
-              alt="Operations dashboard screenshot"
-              className="rounded-[1.8rem] border border-[#dfe8db] bg-white shadow-[0_24px_80px_rgba(29,107,67,0.10)]"
-            />
-            <img
-              src="/aglaze-dashboard-1.png"
-              alt="Marketing website screenshot"
-              className="rounded-[1.8rem] border border-[#dfe8db] bg-white shadow-[0_24px_80px_rgba(29,107,67,0.10)]"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="border-b border-[#e4ece1] bg-white py-24">
-        <div className="mx-auto grid max-w-6xl gap-14 px-6 md:grid-cols-[0.9fr_1.1fr] md:items-center">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-green">Meet Betty AI</p>
-            <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-text-900 md:text-5xl">
-              Betty is live on the site and ready to help.
-            </h2>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-text-500">
-              Betty now lives in the lower-right corner of the site as a real assistant. She can answer questions, guide visitors to the next step, and prove the kind of AI experience we can build for your business.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              {chatbotPrompts.map((prompt) => (
-                <div key={prompt} className="rounded-full border border-[#dfe8db] bg-white px-4 py-2 text-sm font-semibold text-text-700">
-                  {prompt}
-                </div>
-              ))}
-            </div>
-            <button
-              type="button"
-              onClick={openBettyAssistant}
-              className="mt-8 rounded-full bg-brand-green px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-green-light"
-            >
-              Open Betty
-            </button>
-          </div>
-
-          <div className="rounded-[2rem] border border-[#dfe8db] bg-[#fbfdfb] p-5 shadow-[0_30px_90px_rgba(29,107,67,0.08)]">
-            <div className="rounded-[1.6rem] border border-[#e4ece1] bg-white p-5">
-              <div className="mb-5 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <img
-                    src="/betty-ai-assistant.png"
-                    alt="Betty, the BTTY AI assistant"
-                    className="h-14 w-14 rounded-2xl object-cover ring-1 ring-[#dfe8db]"
-                  />
-                  <div>
-                    <p className="text-sm font-bold text-text-900">Betty AI</p>
-                    <p className="text-xs text-text-500">Live site assistant</p>
-                  </div>
-                </div>
-                <div className="rounded-full bg-[#edf7ed] px-3 py-1 text-xs font-semibold text-brand-green">Now floating sitewide</div>
-              </div>
-
-              <div className="rounded-[1.4rem] bg-[#f3f7f1] px-4 py-4 text-sm leading-relaxed text-text-700">
-                Hi, I&apos;m Betty. Get it? Better Today Than Yesterday. How can I help you figure out the right next step for your business?
-              </div>
-
-              <div className="mt-5 rounded-[1.2rem] border border-[#e4ece1] bg-[#f8fbf7] px-4 py-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-green">What this proves</p>
-                <p className="mt-2 text-sm leading-relaxed text-text-500">
-                  Visitors do not have to hunt for answers or wait for office hours. Betty can greet them, answer common questions, and route the right people toward a demo or contact conversation.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="border-b border-[#e4ece1] bg-[linear-gradient(180deg,#ffffff_0%,#f7fbf5_100%)] py-24">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="mb-12 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-            <div className="max-w-3xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-green">Evidence and insight</p>
-              <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-text-900 md:text-5xl">
-                Outside proof that AI-backed businesses are gaining an edge.
-              </h2>
-              <p className="mt-5 text-base leading-relaxed text-text-500">
-                We are not limiting this to things we built ourselves. If the research is credible and the lesson is useful, it belongs in the conversation.
-              </p>
-            </div>
-            <Link to="/blog" className="text-sm font-semibold text-brand-green transition-colors hover:text-brand-green-light">
-              Visit the blog
-            </Link>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-3">
-            {featuredBlogPosts.map((post) => (
-              <Link
-                key={post.slug}
-                to={`/blog/${post.slug}`}
-                className="rounded-[1.8rem] border border-[#e4ece1] bg-white p-7 shadow-[0_18px_50px_rgba(29,107,67,0.05)] transition-transform hover:-translate-y-0.5"
-              >
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-green">{post.kicker}</p>
-                <h3 className="mt-4 text-2xl font-bold tracking-[-0.03em] text-text-900">{post.title}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-text-500">{post.excerpt}</p>
-                <div className="mt-5 flex items-center gap-4 text-xs text-text-400">
-                  <span>{post.publishDate}</span>
-                  <span>{post.readTime}</span>
-                </div>
-              </Link>
             ))}
           </div>
         </div>

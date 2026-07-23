@@ -1,40 +1,17 @@
 import { useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 const nav = [
-  { label: 'Services', to: '/#services' },
-  { label: 'Contractors', to: '/contractors' },
   { label: 'Free Scan', to: '/scan' },
-  { label: 'Blog', to: '/blog' },
-  { label: 'About', to: '/about' },
-  { label: 'Work', to: '/work' },
+  { label: 'What You Get', to: '/contractors' },
   { label: 'Contact', to: '/contact' },
 ]
 
 export default function HeaderV2() {
   const [open, setOpen] = useState(false)
-  const { pathname, hash } = useLocation()
-  const navigate = useNavigate()
-
-  function goToServices() {
-    setOpen(false)
-
-    if (pathname === '/') {
-      const section = document.getElementById('services')
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        return
-      }
-    }
-
-    navigate('/#services')
-  }
+  const { pathname } = useLocation()
 
   function isActive(to: string) {
-    if (to === '/#services') {
-      return pathname === '/' && hash === '#services'
-    }
-
     return pathname === to
   }
 
@@ -51,30 +28,17 @@ export default function HeaderV2() {
         </Link>
 
         <nav className="hidden items-center gap-1 rounded-full border border-[#ece4d8] bg-white px-2 py-2 shadow-[0_10px_32px_rgba(33,29,22,0.06)] md:flex">
-          {nav.map(({ label, to }) =>
-            to === '/#services' ? (
-              <button
-                key={to}
-                type="button"
-                onClick={goToServices}
-                className={`rounded-full px-4 py-2 text-[15px] font-semibold transition-colors ${
-                  isActive(to) ? 'bg-brand-green text-white' : 'text-text-700 hover:bg-[#f7f3ed] hover:text-text-900'
-                }`}
-              >
-                {label}
-              </button>
-            ) : (
-              <Link
-                key={to}
-                to={to}
-                className={`rounded-full px-4 py-2 text-[15px] font-semibold transition-colors ${
-                  isActive(to) ? 'bg-brand-green text-white' : 'text-text-700 hover:bg-[#f7f3ed] hover:text-text-900'
-                }`}
-              >
-                {label}
-              </Link>
-            ),
-          )}
+          {nav.map(({ label, to }) => (
+            <Link
+              key={to}
+              to={to}
+              className={`rounded-full px-4 py-2 text-[15px] font-semibold transition-colors ${
+                isActive(to) ? 'bg-brand-green text-white' : 'text-text-700 hover:bg-[#f7f3ed] hover:text-text-900'
+              }`}
+            >
+              {label}
+            </Link>
+          ))}
 
           <a
             href="https://api.leadconnectorhq.com/widget/booking/ANIqkqlsUOfycji0w2QZ"
@@ -104,27 +68,16 @@ export default function HeaderV2() {
       {open && (
         <div className="border-t border-white/60 bg-[rgba(247,242,234,0.96)] px-6 py-6 md:hidden">
           <div className="flex flex-col gap-3 rounded-3xl border border-white/80 bg-white/75 p-4 shadow-[0_24px_80px_rgba(33,29,22,0.1)]">
-            {nav.map(({ label, to }) =>
-              to === '/#services' ? (
-                <button
-                  key={to}
-                  type="button"
-                  onClick={goToServices}
-                  className="rounded-2xl px-4 py-3 text-left text-sm font-semibold text-text-700 transition-colors hover:bg-surface-100 hover:text-text-900"
-                >
-                  {label}
-                </button>
-              ) : (
-                <Link
-                  key={to}
-                  to={to}
-                  onClick={() => setOpen(false)}
-                  className="rounded-2xl px-4 py-3 text-sm font-semibold text-text-700 transition-colors hover:bg-surface-100 hover:text-text-900"
-                >
-                  {label}
-                </Link>
-              ),
-            )}
+            {nav.map(({ label, to }) => (
+              <Link
+                key={to}
+                to={to}
+                onClick={() => setOpen(false)}
+                className="rounded-2xl px-4 py-3 text-sm font-semibold text-text-700 transition-colors hover:bg-surface-100 hover:text-text-900"
+              >
+                {label}
+              </Link>
+            ))}
             <a
               href="https://api.leadconnectorhq.com/widget/booking/ANIqkqlsUOfycji0w2QZ"
               target="_blank"

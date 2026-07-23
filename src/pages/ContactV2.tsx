@@ -1,14 +1,11 @@
 import { startTransition, useState } from 'react'
 
 const services = [
-  'AI Automation Audit',
-  'Lead Capture and Follow-Up',
-  'Missed Call Text-Back',
-  'CRM and Customer Workflows',
-  'Dashboards and Ops Visibility',
-  'Invoice and Email Processing',
-  'Ongoing Optimization',
-  'Something Else',
+  'New website ($197/mo)',
+  'Get found on Google',
+  'Missed-call text-back',
+  'Lead follow-up system',
+  'Something else',
 ]
 
 function toUrlEncoded(formData: FormData) {
