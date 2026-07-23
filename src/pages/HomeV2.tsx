@@ -96,18 +96,16 @@ export default function HomeV2() {
 
               <div className="mt-10 flex flex-wrap gap-4">
                 <a
-                  href="https://api.leadconnectorhq.com/widget/booking/ANIqkqlsUOfycji0w2QZ"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/scan"
                   className="rounded-full bg-brand-green px-8 py-4 text-sm font-semibold text-white transition-colors hover:bg-brand-green-light"
                 >
-                  Book a Free Demo
+                  Get Your Free Business Scan
                 </a>
                 <a
                   href="#video"
                   className="rounded-full border border-[#d9e8d5] bg-white px-8 py-4 text-sm font-semibold text-text-700 transition-colors hover:border-brand-green hover:text-brand-green"
                 >
-                  Watch How It Works
+                  See How It Works
                 </a>
               </div>
 
@@ -167,58 +165,47 @@ export default function HomeV2() {
       <section id="video" className="border-b border-[#e4ece1] bg-[#f7fbf5] py-24">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-green">See what is possible</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-green">How It Works</p>
             <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-text-900 md:text-5xl">
-              One message. Two delivery formats.
+              Scan it. See it. Own it.
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-text-500">
-              Start with the original founder video, then see how the same message can be turned into an AI avatar asset you can reuse across the business.
+              Three steps from wondering why the phone is quiet to watching leads text you. You see everything before you pay anything.
             </p>
           </div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            <div className="overflow-hidden rounded-[2rem] border border-[#dfe8db] bg-white p-4 shadow-[0_30px_90px_rgba(29,107,67,0.08)]">
-              <div className="mb-4 flex items-center justify-between gap-4 px-2">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-green">Original</p>
-                  <h3 className="mt-2 text-2xl font-bold tracking-[-0.03em] text-text-900">Recorded by Tony</h3>
-                </div>
-                <div className="rounded-full bg-[#edf7ed] px-3 py-1 text-xs font-semibold text-brand-green">Human-led</div>
-              </div>
-              <div className="relative w-full overflow-hidden rounded-[1.5rem]" style={{ paddingBottom: '56.25%' }}>
-                <iframe
-                  className="absolute inset-0 h-full w-full"
-                  src="https://www.youtube.com/embed/tjU-c1d1Eb0?rel=0&modestbranding=1"
-                  title="Original BTTY founder video"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-              <p className="px-2 pb-2 pt-4 text-sm leading-relaxed text-text-500">
-                Your original message, tone, and delivery. This is the source material that makes the AI version feel real instead of generic.
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            <div className="rounded-[2rem] border border-[#dfe8db] bg-white p-8 shadow-[0_30px_90px_rgba(29,107,67,0.08)]">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-brand-green text-lg font-black text-white">1</div>
+              <h3 className="mb-3 text-2xl font-bold tracking-[-0.03em] text-text-900">Scan your business</h3>
+              <p className="text-sm leading-relaxed text-text-500">
+                Type your business name and get a free report in about a minute: your Google presence, website, and reviews, scored against your competition.
               </p>
+              <a href="/scan" className="mt-5 inline-block text-sm font-semibold text-brand-green underline-offset-4 hover:underline">
+                Run the free scan
+              </a>
             </div>
 
-            <div className="overflow-hidden rounded-[2rem] border border-[#dfe8db] bg-white p-4 shadow-[0_30px_90px_rgba(29,107,67,0.08)]">
-              <div className="mb-4 flex items-center justify-between gap-4 px-2">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-green">AI Avatar</p>
-                  <h3 className="mt-2 text-2xl font-bold tracking-[-0.03em] text-text-900">Scaled for reuse</h3>
-                </div>
-                <div className="rounded-full bg-[#edf7ed] px-3 py-1 text-xs font-semibold text-brand-green">Repurposed</div>
-              </div>
-              <div className="relative w-full overflow-hidden rounded-[1.5rem]" style={{ paddingBottom: '56.25%' }}>
-                <iframe
-                  className="absolute inset-0 h-full w-full"
-                  src="https://www.youtube.com/embed/AiUYOkTqeNw?rel=0&modestbranding=1"
-                  title="BTTY AI avatar video"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-              <p className="px-2 pb-2 pt-4 text-sm leading-relaxed text-text-500">
-                The same core message turned into an AI-delivered asset you can reuse for sales, follow-up, onboarding, and content without re-recording every time.
+            <div className="rounded-[2rem] border border-[#dfe8db] bg-white p-8 shadow-[0_30px_90px_rgba(29,107,67,0.08)]">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-brand-green text-lg font-black text-white">2</div>
+              <h3 className="mb-3 text-2xl font-bold tracking-[-0.03em] text-text-900">Preview your new website free</h3>
+              <p className="text-sm leading-relaxed text-text-500">
+                Tell us the basics and within 48 hours we text you a link to your new homepage. No payment, no meeting, no pressure.
               </p>
+              <a href="/contractors#preview" className="mt-5 inline-block text-sm font-semibold text-brand-green underline-offset-4 hover:underline">
+                Get my free preview
+              </a>
+            </div>
+
+            <div className="rounded-[2rem] border border-[#dfe8db] bg-white p-8 shadow-[0_30px_90px_rgba(29,107,67,0.08)]">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-brand-green text-lg font-black text-white">3</div>
+              <h3 className="mb-3 text-2xl font-bold tracking-[-0.03em] text-text-900">Go live for $197 a month</h3>
+              <p className="text-sm leading-relaxed text-text-500">
+                Love it and we take it live: hosting, missed-call text-back, lead alerts, and unlimited small changes. No contract, cancel anytime.
+              </p>
+              <a href="/contractors" className="mt-5 inline-block text-sm font-semibold text-brand-green underline-offset-4 hover:underline">
+                See everything included
+              </a>
             </div>
           </div>
         </div>
@@ -397,30 +384,28 @@ export default function HomeV2() {
 
       <section className="bg-[linear-gradient(135deg,#145233_0%,#1d6b43_45%,#5eb67d_100%)] py-24">
         <div className="mx-auto max-w-5xl px-6 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/70">Ready to stop running everything manually</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/70">Nothing to lose but the jobs you never hear about</p>
           <h2 className="mt-6 text-4xl font-black tracking-[-0.04em] text-white md:text-6xl">
-            Let&apos;s design the system first.
+            See your score.
             <br />
-            Then we can package the offer.
+            Then see your new website. Free.
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
-            We can tighten the homepage more, polish the supporting pages, and then turn it into a sharper client-facing offer.
+            Run the free scan, and if you do not like what it says, we build your new website and show it to you before you pay a dime. $197 a month when you are ready. No contract, ever.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <a
-              href="https://api.leadconnectorhq.com/widget/booking/ANIqkqlsUOfycji0w2QZ"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/scan"
               className="rounded-full bg-white px-8 py-4 text-sm font-semibold text-brand-dark transition-colors hover:bg-surface-200"
             >
-              Book a Free Demo
+              Get My Free Scan
             </a>
-            <Link
-              to="/contact"
+            <a
+              href="/contractors#preview"
               className="rounded-full border border-white/20 px-8 py-4 text-sm font-semibold text-white transition-colors hover:border-white hover:bg-white/8"
             >
-              Talk to Us
-            </Link>
+              Skip to My Free Website Preview
+            </a>
           </div>
         </div>
       </section>
