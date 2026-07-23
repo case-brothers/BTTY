@@ -11,6 +11,8 @@ import Blog from './pages/BlogV2'
 import BlogPost from './pages/BlogPostV2'
 import Contractors from './pages/ContractorsV2'
 import Scan from './pages/ScanV2'
+import Privacy from './pages/PrivacyV2'
+import Terms from './pages/TermsV2'
 
 function ScrollManager() {
   const { pathname, hash } = useLocation()
@@ -54,6 +56,8 @@ export default function App() {
           <Route path="/contractors" element={<Contractors />} />
           <Route path="/websites" element={<Contractors />} />
           <Route path="/scan" element={<Scan />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
         </Routes>
       </main>
       <BettyAssistant />

@@ -419,6 +419,15 @@ export default function ContractorsV2() {
                 />
               </div>
 
+              <label className="flex items-start gap-3 text-xs leading-relaxed text-text-500">
+                <input type="checkbox" name="sms-consent" value="yes" className="mt-0.5 h-4 w-4 shrink-0 accent-brand-green" />
+                <span>
+                  I agree to receive text messages from BTTY (Case Brothers Holdings LLC) about my website preview and business report at the number I provided. Message and data rates may apply, message frequency varies. Reply STOP to opt out or HELP for help. See our{' '}
+                  <a href="/terms" className="underline underline-offset-2">Terms of Service</a> and{' '}
+                  <a href="/privacy" className="underline underline-offset-2">Privacy Policy</a>.
+                </span>
+              </label>
+
               {submitError ? <p className="text-sm font-semibold text-red-600">{submitError}</p> : null}
 
               <button
