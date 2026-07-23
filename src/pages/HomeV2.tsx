@@ -96,7 +96,7 @@ export default function HomeV2() {
 
               <div className="mt-10 flex flex-wrap gap-4">
                 <a
-                  href="https://calendly.com/tcase-wlej/revenue-system-install"
+                  href="https://api.leadconnectorhq.com/widget/booking/ANIqkqlsUOfycji0w2QZ"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="rounded-full bg-brand-green px-8 py-4 text-sm font-semibold text-white transition-colors hover:bg-brand-green-light"
@@ -408,7 +408,7 @@ export default function HomeV2() {
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <a
-              href="https://calendly.com/tcase-wlej/revenue-system-install"
+              href="https://api.leadconnectorhq.com/widget/booking/ANIqkqlsUOfycji0w2QZ"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-full bg-white px-8 py-4 text-sm font-semibold text-brand-dark transition-colors hover:bg-surface-200"

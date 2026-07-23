@@ -85,7 +85,7 @@ export default function BlogPostV2() {
                   Ask Betty
                 </button>
                 <a
-                  href="https://calendly.com/tcase-wlej/revenue-system-install"
+                  href="https://api.leadconnectorhq.com/widget/booking/ANIqkqlsUOfycji0w2QZ"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="rounded-full border border-[#dfe8db] px-5 py-3 text-center text-sm font-semibold text-text-700 transition-colors hover:border-brand-green hover:text-brand-green"

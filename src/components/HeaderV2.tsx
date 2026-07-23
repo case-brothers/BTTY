@@ -77,7 +77,7 @@ export default function HeaderV2() {
           )}
 
           <a
-            href="https://calendly.com/tcase-wlej/revenue-system-install"
+            href="https://api.leadconnectorhq.com/widget/booking/ANIqkqlsUOfycji0w2QZ"
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-full bg-brand-dark px-6 py-3 text-[15px] font-semibold text-white transition-colors hover:bg-brand-black"
@@ -126,7 +126,7 @@ export default function HeaderV2() {
               ),
             )}
             <a
-              href="https://calendly.com/tcase-wlej/revenue-system-install"
+              href="https://api.leadconnectorhq.com/widget/booking/ANIqkqlsUOfycji0w2QZ"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}

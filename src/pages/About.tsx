@@ -152,7 +152,7 @@ export default function About() {
             Tell us what's eating your time and we'll tell you if we can fix it. 15 minutes, no pitch.
           </p>
           <a
-            href="https://calendly.com/tcase-wlej/revenue-system-install"
+            href="https://api.leadconnectorhq.com/widget/booking/ANIqkqlsUOfycji0w2QZ"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm font-semibold bg-white text-brand-dark px-10 py-4 rounded-lg hover:bg-surface-200 transition-colors inline-block"

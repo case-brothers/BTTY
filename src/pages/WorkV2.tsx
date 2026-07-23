@@ -203,7 +203,7 @@ export default function WorkV2() {
             We are most useful when the business is growing, the systems are messy, and the owner knows the next level needs better infrastructure.
           </p>
           <a
-            href="https://calendly.com/tcase-wlej/revenue-system-install"
+            href="https://api.leadconnectorhq.com/widget/booking/ANIqkqlsUOfycji0w2QZ"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-10 inline-block rounded-full bg-white px-8 py-4 text-sm font-semibold text-brand-dark transition-colors hover:bg-surface-200"

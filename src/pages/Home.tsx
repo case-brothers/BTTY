@@ -92,7 +92,7 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap gap-4">
               <a
-                href="https://calendly.com/tcase-wlej/revenue-system-install"
+                href="https://api.leadconnectorhq.com/widget/booking/ANIqkqlsUOfycji0w2QZ"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-semibold bg-brand-dark text-white px-8 py-4 rounded-full hover:bg-brand-black transition-colors"
@@ -141,7 +141,7 @@ export default function Home() {
           </div>
           <div className="text-center mt-10">
             <a
-              href="https://calendly.com/tcase-wlej/revenue-system-install"
+              href="https://api.leadconnectorhq.com/widget/booking/ANIqkqlsUOfycji0w2QZ"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm font-semibold bg-brand-dark text-white px-10 py-4 rounded-lg hover:bg-brand-black transition-colors inline-block"
@@ -233,7 +233,7 @@ export default function Home() {
                   <div className="text-xs font-semibold uppercase text-text-400 mb-1">Deliverable</div>
                   <div className="text-text-700 text-sm mb-6">{deliverable}</div>
                   <a
-                    href="https://calendly.com/tcase-wlej/revenue-system-install"
+                    href="https://api.leadconnectorhq.com/widget/booking/ANIqkqlsUOfycji0w2QZ"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-sm font-semibold text-brand-green hover:text-brand-green-light transition-colors"
@@ -399,7 +399,7 @@ export default function Home() {
           </div>
           <div className="text-center mt-10">
             <a
-              href="https://calendly.com/tcase-wlej/revenue-system-install"
+              href="https://api.leadconnectorhq.com/widget/booking/ANIqkqlsUOfycji0w2QZ"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm font-semibold bg-brand-dark text-white px-10 py-4 rounded-full hover:bg-brand-black transition-colors inline-block"
@@ -425,7 +425,7 @@ export default function Home() {
               15 minutes. No pitch. We'll tell you exactly where automation can save you time and money — or we'll tell you we're not the right fit.
             </p>
             <a
-              href="https://calendly.com/tcase-wlej/revenue-system-install"
+              href="https://api.leadconnectorhq.com/widget/booking/ANIqkqlsUOfycji0w2QZ"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm font-semibold bg-white text-brand-dark px-10 py-4 rounded-full hover:bg-surface-200 transition-colors inline-block"

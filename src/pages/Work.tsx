@@ -118,7 +118,7 @@ export default function Work() {
             We're selective about what we take on. If it's the kind of problem we can solve, we'll tell you straight — and show you how.
           </p>
           <a
-            href="https://calendly.com/tcase-wlej/revenue-system-install"
+            href="https://api.leadconnectorhq.com/widget/booking/ANIqkqlsUOfycji0w2QZ"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm font-semibold bg-white text-brand-dark px-10 py-4 rounded-lg hover:bg-surface-200 transition-colors inline-block"
