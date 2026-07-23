@@ -165,13 +165,14 @@ export default function ContractorsV2() {
       <section className="border-b border-surface-300 bg-white pb-20 pt-32">
         <div className="mx-auto max-w-6xl px-6">
           <p className="mb-6 text-xs font-semibold uppercase tracking-wide text-brand-green">Websites For Contractors &amp; Trades</p>
-          <h1 className="mb-8 text-5xl font-black leading-[1.05] tracking-tight text-text-900 md:text-7xl">
+          <h1 className="mb-4 max-w-4xl text-5xl font-black leading-[1.02] tracking-tight text-text-900 md:mb-6 md:text-7xl">
             Your competitor isn&apos;t better than you.
-            <br />
-            <span className="text-brand-green">He&apos;s just easier to find.</span>
           </h1>
+          <p className="mb-9 text-5xl font-black leading-[1.02] tracking-tight text-brand-green md:mb-10 md:text-7xl">
+            He&apos;s just easier to find.
+          </p>
           <p className="max-w-2xl text-lg leading-relaxed text-text-500">
-            BTTY builds websites and lead systems for roofers, HVAC, plumbers, electricians, and every trade that lives by a ringing phone. $197 a month. Everything included. No contract. And you see your site before you pay a dime.
+            {'BTTY builds websites and lead systems for roofers, HVAC, plumbers, electricians, and every trade that lives by a ringing phone. $197 a month. Everything included. No contract. And you see your site before you pay a dime.'}
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a
