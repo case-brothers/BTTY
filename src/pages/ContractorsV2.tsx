@@ -54,8 +54,8 @@ const steps = [
   },
   {
     number: '2',
-    title: 'We build your draft free',
-    body: 'Within 48 hours we text you a link to a real draft of your new homepage. Your name, your trade, your town. No payment, no meeting first.',
+    title: 'We build your new website free',
+    body: 'Within 48 hours we text you a link to preview your new homepage. Your name, your trade, your town. No payment, no meeting first.',
   },
   {
     number: '3',
@@ -66,8 +66,8 @@ const steps = [
 
 const faqs = [
   {
-    q: 'What is the catch with the free draft?',
-    a: 'No catch. Building the draft first is simply the easiest way to show you what we do. Some people walk away. Most do not.',
+    q: 'What is the catch with the free preview?',
+    a: 'No catch. Building your website first is simply the easiest way to show you what we do. Some people walk away. Most do not.',
   },
   {
     q: 'Do I own my domain and my site?',
@@ -151,9 +151,9 @@ export default function ContractorsV2() {
       <section className="flex min-h-screen items-center justify-center bg-white pt-16">
         <div className="mx-auto max-w-lg px-6 text-center">
           <div className="mb-8 text-5xl text-brand-green">OK</div>
-          <h1 className="mb-4 text-4xl font-black text-text-900">Your draft is in the queue.</h1>
+          <h1 className="mb-4 text-4xl font-black text-text-900">Your new website is on the way.</h1>
           <p className="leading-relaxed text-text-500">
-            Within 48 hours you will get a text with a link to your new homepage draft. A real person, not a robot, will follow up. If you want to talk sooner, call Betty any time at (812) 636-1148.
+            Within 48 hours you will get a text with a link to preview your new website. A real person, not a robot, will follow up. If you want to talk sooner, call Betty any time at (812) 636-1148.
           </p>
         </div>
       </section>
@@ -175,10 +175,10 @@ export default function ContractorsV2() {
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a
-              href="#draft"
+              href="#preview"
               className="rounded-full bg-brand-green px-8 py-4 text-sm font-bold text-white transition-opacity hover:opacity-90"
             >
-              Get My Free Draft
+              Preview My New Website
             </a>
             <a href="#how" className="text-sm font-semibold text-text-700 underline-offset-4 hover:underline">
               See how it works
@@ -277,16 +277,16 @@ export default function ContractorsV2() {
         </div>
       </section>
 
-      <section id="draft" className="bg-surface-100 py-24">
+      <section id="preview" className="bg-surface-100 py-24">
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid grid-cols-1 gap-20 md:grid-cols-2">
             <div>
-              <p className="mb-4 text-xs font-semibold uppercase tracking-wide text-brand-green">Free Draft. Real Offer.</p>
+              <p className="mb-4 text-xs font-semibold uppercase tracking-wide text-brand-green">Free Preview. No Strings.</p>
               <h2 className="mb-6 text-4xl font-black tracking-tight text-text-900 md:text-5xl">
-                Get your homepage draft in 48 hours.
+                Fill out this brief form. Preview your new website in 48 hours.
               </h2>
               <p className="mb-10 max-w-md text-base leading-relaxed text-text-500">
-                Two minutes of your time now. A link on your phone within two days. Zero obligation either way. Prefer to talk instead? Call Betty, our 24/7 assistant, at (812) 636-1148.
+                Two minutes of your time now. Your new website on your phone within two days. Zero obligation either way. Prefer to talk instead? Call Betty, our 24/7 assistant, at (812) 636-1148.
               </p>
 
               <div className="flex flex-col gap-6">
@@ -358,7 +358,7 @@ export default function ContractorsV2() {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label className="text-xs font-semibold uppercase text-text-500">Cell Phone (we text your draft here) *</label>
+                <label className="text-xs font-semibold uppercase text-text-500">Cell Phone (we text your preview link here) *</label>
                 <input
                   type="tel"
                   name="phone"
@@ -425,7 +425,7 @@ export default function ContractorsV2() {
                 disabled={isSubmitting}
                 className="rounded-full bg-brand-green px-8 py-4 text-sm font-bold text-white transition-opacity hover:opacity-90 disabled:opacity-60"
               >
-                {isSubmitting ? 'Sending...' : 'Build My Free Draft'}
+                {isSubmitting ? 'Sending...' : 'Show Me My New Website'}
               </button>
               <p className="text-xs leading-relaxed text-text-400">
                 No spam, no call list, no obligation. You get one draft and one follow-up from a real person.
