@@ -16,7 +16,7 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-surface-300 bg-white/90 backdrop-blur-md">
       <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
         <Link to="/" className="flex items-center group">
-          <img src="/btty-logo-dark.png" alt="BTTY — Better Today Than Yesterday" className="h-12 md:h-14 w-auto max-w-[180px]" />
+          <img src="/btty-logo-master.png" alt="BTTY — Better Today Than Yesterday" className="h-12 md:h-14 w-auto max-w-[180px]" />
         </Link>
 
         {/* Desktop nav */}

@@ -21,7 +21,7 @@ export default function FooterV2() {
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 md:flex-row md:items-end md:justify-between">
         <div className="max-w-sm">
           <Link to="/">
-            <img src="/btty-logo-dark.png" alt="BTTY" className="h-12 w-auto" />
+            <img src="/btty-logo-master.png" alt="BTTY" className="h-12 w-auto" />
           </Link>
           <p className="mt-4 text-sm leading-relaxed text-text-500">
             Practical AI systems, sharper operations, and clearer visibility for teams that do not have time for fluff.

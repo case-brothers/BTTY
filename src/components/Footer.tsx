@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
         <div>
           <Link to="/">
-            <img src="/btty-logo-dark.png" alt="BTTY" className="h-12 w-auto" />
+            <img src="/btty-logo-master.png" alt="BTTY" className="h-12 w-auto" />
           </Link>
         </div>
 

@@ -41,7 +41,7 @@ export default function HeaderV2() {
     <header className="fixed left-0 right-0 top-0 z-50 border-b border-[#ece4d8]/80 bg-[rgba(250,247,241,0.92)] backdrop-blur-xl">
       <div className="mx-auto flex h-18 max-w-6xl items-center justify-between px-6">
         <Link to="/" className="flex items-center gap-3">
-          <img src="/btty-logo-green-arrow.png" alt="BTTY logo" className="h-10 w-auto md:h-11" />
+          <img src="/btty-logo-master.png" alt="BTTY logo" className="h-10 w-auto md:h-11" />
           <div className="leading-none">
             <div className="mt-1 text-[11px] font-medium uppercase tracking-[0.16em] text-text-400">
               Better Today Than Yesterday
