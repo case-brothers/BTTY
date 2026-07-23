@@ -9,6 +9,7 @@ import Work from './pages/WorkV2'
 import Contact from './pages/ContactV2'
 import Blog from './pages/BlogV2'
 import BlogPost from './pages/BlogPostV2'
+import Contractors from './pages/ContractorsV2'
 
 function ScrollManager() {
   const { pathname, hash } = useLocation()
@@ -49,6 +50,8 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/work" element={<Work />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/contractors" element={<Contractors />} />
+          <Route path="/websites" element={<Contractors />} />
         </Routes>
       </main>
       <BettyAssistant />
