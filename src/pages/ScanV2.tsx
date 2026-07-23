@@ -2,7 +2,8 @@ import { useEffect, useRef } from 'react'
 
 // Filled in from HighLevel. When WIDGET_EMBED is empty the page shows the
 // preview-form fallback instead of a broken scanner.
-const WIDGET_EMBED = ''
+const WIDGET_EMBED =
+  '<iframe src="https://services.leadconnectorhq.com/prospecting/widgets/public/6a624729e85cf6aa7b2ef901" title="Free business scan" style="width:100%;min-height:860px;border:0;display:block" loading="lazy"></iframe>'
 const PAYMENT_LINK_URL = 'https://link.fastpaydirect.com/payment-link/6a620ab5a655fa0b802a5c31'
 
 const scoreChecks = [
