@@ -44,6 +44,20 @@ export default function PrivacyV2() {
           </div>
 
           <div>
+            <h2 className="mb-2 text-xl font-bold text-text-900">Cookies and tracking</h2>
+            <p>
+              Our website uses cookies and similar technologies for basic site functionality and standard analytics, such as understanding which pages are visited. We do not use cookies to sell your information. You can block or delete cookies in your browser settings and the site will still work.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="mb-2 text-xl font-bold text-text-900">Data security</h2>
+            <p>
+              We protect your information with reasonable administrative and technical safeguards: encrypted connections (HTTPS) on our website, access limited to the people and service providers who need it to serve you, and reputable platforms for storage and messaging. No method of transmission or storage is completely secure, but we work to protect your information and will notify you as required by law if a breach affects you.
+            </p>
+          </div>
+
+          <div>
             <h2 className="mb-2 text-xl font-bold text-text-900">Your choices</h2>
             <p>
               You can ask us to correct or delete your information, or to stop contacting you, at any time. Email tcase@btownrolypoly.com or reply STOP to any text message.

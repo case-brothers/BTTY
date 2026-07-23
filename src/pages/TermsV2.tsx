@@ -39,7 +39,8 @@ export default function TermsV2() {
           <div>
             <h2 className="mb-2 text-xl font-bold text-text-900">Text messaging terms</h2>
             <p>
-              If you opt in to text messages, we send messages about your report, website preview, appointments, and account. Message and data rates may apply and message frequency varies. Reply STOP to cancel at any time, or HELP for help. Consent is not a condition of purchase.
+              If you opt in to text messages, we send customer care, appointment, and follow-up messages about your report, website preview, and account. Message and data rates may apply and message frequency varies. Reply STOP to cancel at any time, or HELP for help. Consent is not a condition of purchase. Wireless carriers are not liable for delayed or undelivered messages. Our services are intended for business owners and operators age 18 and older. For details on how we handle your information, see our{' '}
+              <a href="/privacy" className="underline underline-offset-2">Privacy Policy</a>.
             </p>
           </div>
 
