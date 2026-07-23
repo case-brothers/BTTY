@@ -97,7 +97,7 @@ export default function ContractorsV2() {
   useEffect(() => {
     document.title = 'BTTY | Websites For Contractors'
     return () => {
-      document.title = 'BTTY | AI Automation For Operators'
+      document.title = 'BTTY | Websites That Get You Found'
     }
   }, [])
 

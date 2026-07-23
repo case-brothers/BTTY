@@ -80,7 +80,7 @@ export default function ScanV2() {
   useEffect(() => {
     document.title = 'BTTY | Free Business Scan'
     return () => {
-      document.title = 'BTTY | AI Automation For Operators'
+      document.title = 'BTTY | Websites That Get You Found'
     }
   }, [])
 
