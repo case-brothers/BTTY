@@ -10,6 +10,11 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+
+# Secrets. Never commit API keys.
+.env
+.env.*
+!.env.example
 site-dist*
 .vite-cache-v2
 .netlify

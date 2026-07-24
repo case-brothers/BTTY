@@ -10,7 +10,7 @@ import Contact from './pages/ContactV2'
 import Blog from './pages/BlogV2'
 import BlogPost from './pages/BlogPostV2'
 import Contractors from './pages/ContractorsV2'
-import Scan from './pages/ScanV2'
+import Scan from './pages/ScanRedirect'
 import Privacy from './pages/PrivacyV2'
 import Terms from './pages/TermsV2'
 
