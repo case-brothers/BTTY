@@ -1,3 +1,19 @@
+# The grader is a separate site (btty-business-grader) served at
+# grademe.btty.ai. It is the single canonical grader; this site keeps no grader
+# code and no copy of its backend. These rules must stay ABOVE the SPA
+# catch-all, because Netlify applies the first matching rule.
+[[redirects]]
+  from = "/scan"
+  to = "https://grademe.btty.ai"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/scan/*"
+  to = "https://grademe.btty.ai/:splat"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
@@ -9,3 +25,12 @@
 
 [functions]
   directory = "netlify/functions"
+
+# Local `netlify dev` only. Pins the ports so the dev server can coexist with
+# other projects on the machine; has no effect on deploys.
+[dev]
+  command = "npm run dev"
+  framework = "#custom"
+  targetPort = 5199
+  port = 8899
+  autoLaunch = false
