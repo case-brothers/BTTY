@@ -1,8 +1,114 @@
-const resultCards = [
-  { value: '$197', label: 'a month, everything included. No setup fee, no contract, cancel anytime.' },
-  { value: '48h', label: 'from your info to a free preview of your new website, texted to your phone.' },
-  { value: '9 sec', label: 'for a missed call to get an automatic text back before they dial the next guy.' },
+import { useEffect, useRef, useState } from 'react'
+
+const leadStory = [
+  {
+    title: 'A call gets missed',
+    body: 'You are on the job. The customer may already be calling the next contractor.',
+  },
+  {
+    title: 'Your website captures the estimate',
+    body: 'A short, phone-friendly form turns interest into a real lead.',
+  },
+  {
+    title: 'The system texts back right away',
+    body: 'Missed callers get a fast reply before the opportunity cools.',
+  },
+  {
+    title: 'Follow-up keeps the conversation moving',
+    body: 'Automatic reminders help good leads avoid slipping away.',
+  },
+  {
+    title: 'Every lead stays visible in one place',
+    body: 'Calls, forms, replies, and next steps stay organized on one screen.',
+  },
 ]
+
+function LeadStory() {
+  const storyRef = useRef<HTMLDivElement>(null)
+  const [activeStep, setActiveStep] = useState(() =>
+    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      ? leadStory.length - 1
+      : -1,
+  )
+
+  useEffect(() => {
+    const element = storyRef.current
+    if (!element) return
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reduceMotion) return
+
+    let timer: number | undefined
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return
+
+        observer.disconnect()
+        setActiveStep(0)
+        let nextStep = 1
+        timer = window.setInterval(() => {
+          setActiveStep(nextStep)
+          nextStep += 1
+          if (nextStep >= leadStory.length && timer) window.clearInterval(timer)
+        }, 520)
+      },
+      { threshold: 0.3 },
+    )
+
+    observer.observe(element)
+    return () => {
+      observer.disconnect()
+      if (timer) window.clearInterval(timer)
+    }
+  }, [])
+
+  const announcedStep = activeStep >= 0 ? leadStory[activeStep]?.title : ''
+
+  return (
+    <div ref={storyRef} className="mt-8 rounded-[1.5rem] border border-[#dfe8db] bg-[#f8fbf7] p-5 md:p-6">
+      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-green">From missed opportunity to clear next step</p>
+      <h3 className="mt-2 text-xl font-black tracking-[-0.03em] text-text-900 md:text-2xl">
+        A missed call does not have to become a lost job.
+      </h3>
+      <p className="mt-2 text-sm leading-relaxed text-text-500">
+        Here is how the website and follow-up system work together—without adding another task to your day.
+      </p>
+
+      <div className="sr-only" aria-live="polite" aria-atomic="true">
+        {announcedStep}
+      </div>
+
+      <ol className="mt-5 grid gap-3" aria-label="How BTTY turns missed opportunities into organized leads">
+        {leadStory.map(({ title, body }, index) => {
+          const revealed = index <= activeStep
+          return (
+            <li
+              key={title}
+              className={`flex gap-3 rounded-2xl border px-4 py-3 transition-[opacity,transform,background-color,border-color] duration-500 motion-reduce:transform-none motion-reduce:transition-none ${
+                revealed
+                  ? 'translate-y-0 border-[#d6e7d2] bg-white opacity-100'
+                  : 'translate-y-2 border-transparent bg-transparent opacity-35'
+              }`}
+            >
+              <span
+                className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-black transition-colors duration-500 motion-reduce:transition-none ${
+                  revealed ? 'bg-brand-green text-white' : 'bg-[#e4eae2] text-text-400'
+                }`}
+                aria-hidden="true"
+              >
+                ✓
+              </span>
+              <div>
+                <p className="text-sm font-bold text-text-900">{title}</p>
+                <p className="mt-0.5 text-xs leading-relaxed text-text-500">{body}</p>
+              </div>
+            </li>
+          )
+        })}
+      </ol>
+    </div>
+  )
+}
 
 const included = [
   {
@@ -41,13 +147,13 @@ export default function HomeV2() {
         </div>
 
         <div className="relative mx-auto max-w-6xl px-6 pb-18 pt-14 md:pb-24">
-          <div className="mb-8 inline-flex items-center rounded-full border border-[#d9e8d5] bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-green shadow-[0_10px_30px_rgba(23,27,23,0.05)]">
-            Better Today Than Yesterday
-          </div>
-
-          <div className="grid gap-14 md:grid-cols-[1.05fr_0.95fr] md:items-center">
+          <div className="grid gap-14 md:grid-cols-[0.9fr_1.1fr] md:items-start lg:gap-16">
             <div className="fade-up">
-              <h1 className="max-w-4xl text-5xl font-black leading-[0.95] tracking-[-0.05em] text-text-900 md:text-7xl">
+              <div className="mb-7 inline-flex items-center rounded-full border border-[#d9e8d5] bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-green shadow-[0_10px_30px_rgba(23,27,23,0.05)]">
+                Better Today Than Yesterday
+              </div>
+
+              <h1 className="max-w-4xl text-5xl font-black leading-[0.95] tracking-[-0.05em] text-text-900 md:text-6xl lg:text-7xl">
                 If Google can&apos;t find you,
                 <br />
                 <span className="text-brand-green">your customers can&apos;t either.</span>
@@ -56,6 +162,8 @@ export default function HomeV2() {
               <p className="mt-8 max-w-2xl text-lg leading-relaxed text-text-500 md:text-xl">
                 {'Run the free 60-second scan and see how your business looks to the people searching for what you do. If you do not like the answer, we fix it for $197 a month, and you see your new website before you pay a dime.'}
               </p>
+
+              <LeadStory />
 
               <div className="mt-10 flex flex-wrap gap-4">
                 <a
@@ -80,32 +188,14 @@ export default function HomeV2() {
               </div>
             </div>
 
-            <div className="fade-up delay-2">
-              <div className="rounded-[2rem] border border-[#dfe8db] bg-white p-4 shadow-[0_30px_90px_rgba(29,107,67,0.10)]">
-                <div className="rounded-[1.5rem] bg-[linear-gradient(135deg,#1d6b43_0%,#5eb67d_100%)] p-5 text-white">
-                  <div className="mb-4 flex items-center justify-between">
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/70">Your Lead System</p>
-                      <p className="mt-1 text-2xl font-bold">Every call, every lead, one screen.</p>
-                    </div>
-                    <div className="rounded-full bg-white/12 px-3 py-1 text-xs font-semibold">BTTY</div>
-                  </div>
-
-                  <div className="overflow-hidden rounded-[1.25rem] border border-white/15 bg-white/6">
-                    <img src="/dashboard-portal.png" alt="BTTY lead system dashboard" className="w-full" />
-                  </div>
-                </div>
-
-                <div className="mt-4 grid gap-3 sm:grid-cols-3">
-                  {resultCards.map(({ value, label }) => (
-                    <div key={label} className="rounded-[1.3rem] border border-[#e4ece1] bg-[#f7fbf5] p-4">
-                      <div className="text-3xl font-black tracking-[-0.04em] text-text-900">{value}</div>
-                      <p className="mt-2 text-xs leading-relaxed text-text-500">{label}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+            <figure className="fade-up delay-2 md:sticky md:top-28">
+              <img
+                src="/mason-electric-website-phone.png"
+                alt="Mason Electric mobile website with a branded service van, electrician, estimate button, electrical services, and local trust information"
+                className="mx-auto w-full max-w-[620px] rounded-[2rem] shadow-[0_30px_90px_rgba(29,107,67,0.14)]"
+              />
+              <figcaption className="sr-only">A customer-facing website example for Mason Electric.</figcaption>
+            </figure>
           </div>
         </div>
       </section>
