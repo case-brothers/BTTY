@@ -31,6 +31,80 @@ function normalize(value: string) {
   return value.trim() || 'Not provided'
 }
 
+function splitName(value: string) {
+  const [firstName = '', ...rest] = value.trim().split(/\s+/).filter(Boolean)
+  return { firstName, lastName: rest.join(' ') }
+}
+
+async function sendLeadToHighLevel(lead: {
+  name: string
+  email: string
+  company: string
+}) {
+  const token = getEnv('HIGHLEVEL_PRIVATE_INTEGRATION_TOKEN')
+  const locationId = getEnv('HIGHLEVEL_LOCATION_ID')
+  const workflowId = getEnv('HIGHLEVEL_SCAN_LEAD_WORKFLOW_ID')
+
+  // This direct API route deliberately avoids HighLevel's paid inbound-webhook trigger.
+  if (!token || !locationId || !workflowId) return { attempted: false, delivered: false }
+
+  const { firstName, lastName } = splitName(lead.name)
+  const contactResponse = await fetch('https://services.leadconnectorhq.com/contacts/upsert', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+      Version: '2021-07-28',
+    },
+    body: JSON.stringify({
+      locationId,
+      firstName,
+      lastName,
+      email: lead.email,
+      companyName: lead.company || undefined,
+      source: 'BTTY Website',
+      tags: ['btty-website-lead'],
+    }),
+  })
+
+  if (!contactResponse.ok) {
+    console.error('HighLevel contact upsert failed:', contactResponse.status)
+    return { attempted: true, delivered: false }
+  }
+
+  const contactPayload = (await contactResponse.json()) as {
+    contact?: { id?: string }
+    id?: string
+  }
+  const contactId = contactPayload.contact?.id ?? contactPayload.id
+  if (!contactId) {
+    console.error('HighLevel contact upsert returned no contact ID')
+    return { attempted: true, delivered: false }
+  }
+
+  const workflowResponse = await fetch(
+    `https://services.leadconnectorhq.com/contacts/${encodeURIComponent(contactId)}/workflow/${encodeURIComponent(workflowId)}`,
+    {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+        Version: '2021-07-28',
+      },
+      body: JSON.stringify({}),
+    },
+  )
+
+  if (!workflowResponse.ok) {
+    console.error('HighLevel workflow enrollment failed:', workflowResponse.status)
+    return { attempted: true, delivered: false }
+  }
+
+  return { attempted: true, delivered: true }
+}
+
 export default async (req: Request) => {
   if (req.method !== 'POST') return new Response('Method not allowed', { status: 405 })
 
@@ -82,6 +156,14 @@ export default async (req: Request) => {
   const mailgunApiKey = getEnv('MAILGUN_API_KEY')
   const mailgunDomain = getEnv('MAILGUN_DOMAIN')
   const mailgunRegion = (getEnv('MAILGUN_REGION') ?? 'US').toUpperCase()
+
+  try {
+    const highLevelResult = await sendLeadToHighLevel({ name, email, company })
+    if (highLevelResult.attempted && !highLevelResult.delivered)
+      console.error('HighLevel direct lead handoff did not complete')
+  } catch (error) {
+    console.error('HighLevel direct lead handoff failed:', error)
+  }
 
   if (!mailgunApiKey || !mailgunDomain) {
     return new Response('Missing Mailgun configuration', { status: 500 })
