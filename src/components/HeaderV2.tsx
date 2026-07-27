@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 const nav = [
-  { label: 'Free Scan', to: '/scan' },
+  { label: 'Grade my business now', to: '/scan' },
   { label: 'What You Get', to: '/contractors' },
   { label: 'Contact', to: '/contact' },
 ]

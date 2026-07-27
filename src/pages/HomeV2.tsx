@@ -181,7 +181,7 @@ export default function HomeV2() {
                   href="/scan"
                   className="rounded-full bg-brand-green px-8 py-4 text-sm font-semibold text-white transition-colors hover:bg-brand-green-light"
                 >
-                  Get Your Free Business Scan
+                  Grade my business now
                 </a>
                 <a
                   href="#how"
@@ -222,7 +222,7 @@ export default function HomeV2() {
                 Type your business name and get a free report in about a minute: your Google presence, website, and reviews, scored against your competition.
               </p>
               <a href="/scan" className="mt-5 inline-block text-sm font-semibold text-brand-green underline-offset-4 hover:underline">
-                Run the free scan
+                Grade my business now
               </a>
             </div>
 
@@ -230,10 +230,10 @@ export default function HomeV2() {
               <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-brand-green text-lg font-black text-white">2</div>
               <h3 className="mb-3 text-2xl font-bold tracking-[-0.03em] text-text-900">Preview your new website free</h3>
               <p className="text-sm leading-relaxed text-text-500">
-                Tell us the basics and within 48 hours we text you a link to your new homepage. No payment, no meeting, no pressure.
+                After your grade, watch BTTY turn the findings into an improved website preview in about 35 seconds. No payment, no meeting, no pressure.
               </p>
-              <a href="/contractors#preview" className="mt-5 inline-block text-sm font-semibold text-brand-green underline-offset-4 hover:underline">
-                Get my free preview
+              <a href="/scan" className="mt-5 inline-block text-sm font-semibold text-brand-green underline-offset-4 hover:underline">
+                Grade my business now
               </a>
             </div>
 
@@ -253,16 +253,50 @@ export default function HomeV2() {
 
       <section id="services" className="border-b border-[#e4ece1] bg-white py-24">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="mb-14 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div className="mb-14 grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-12">
             <div className="max-w-2xl">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-green">What $197 A Month Buys</p>
               <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-text-900 md:text-5xl">
-                The whole system. One price.
+                <span className="block">The whole system.</span>
+                <span className="block">One price.</span>
               </h2>
             </div>
-            <p className="max-w-xl text-sm leading-relaxed text-text-500">
-              Agencies charge $2,000 a month for less. Website builders leave you doing it yourself. This is the middle that actually works.
-            </p>
+
+            <div className="rounded-[1.8rem] border border-[#dfe8db] bg-[#f8fbf7] p-5 md:p-6" aria-label="Website and lead-system cost comparison">
+              <div className="flex items-center gap-4 border-b border-[#dde6da] pb-4">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-text-300 text-text-400" aria-label="Not the BTTY option">
+                  <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+                    <circle cx="12" cy="12" r="8" />
+                    <path d="m6.4 17.6 11.2-11.2" />
+                  </svg>
+                </span>
+                <p className="text-sm text-text-600"><span className="font-bold text-text-900">Traditional agency</span> <span className="mx-1 text-text-300">·</span> typically <span className="font-bold">$2,000+/month</span></p>
+              </div>
+
+              <div className="flex items-center gap-4 border-b border-[#dde6da] py-4">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-text-300 text-text-400" aria-label="Not the BTTY option">
+                  <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+                    <circle cx="12" cy="12" r="8" />
+                    <path d="m6.4 17.6 11.2-11.2" />
+                  </svg>
+                </span>
+                <p className="text-sm text-text-600"><span className="font-bold text-text-900">Custom website build</span> <span className="mx-1 text-text-300">·</span> often <span className="font-bold">$6,000+</span></p>
+              </div>
+
+              <div className="flex items-start gap-4 pt-4">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-green text-sm font-black text-white" aria-label="BTTY option">✓</span>
+                <div>
+                  <p className="text-lg font-black text-text-900">BTTY.ai — $197/month</p>
+                  <p className="mt-1 text-sm text-text-500">No commitment. No contract ever.</p>
+                  <a
+                    href="/scan"
+                    className="mt-4 inline-flex rounded-full bg-brand-green px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-green-light"
+                  >
+                    Grade my business now
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -292,13 +326,15 @@ export default function HomeV2() {
               href="/scan"
               className="rounded-full bg-white px-8 py-4 text-sm font-semibold text-brand-dark transition-colors hover:bg-surface-200"
             >
-              Get My Free Scan
+              Grade my business now
             </a>
             <a
-              href="/contractors#preview"
+              href="https://link.fastpaydirect.com/payment-link/6a620ab5a655fa0b802a5c31"
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-full border border-white/20 px-8 py-4 text-sm font-semibold text-white transition-colors hover:border-white hover:bg-white/8"
             >
-              Skip to My Free Website Preview
+              Sign me up now
             </a>
           </div>
         </div>
