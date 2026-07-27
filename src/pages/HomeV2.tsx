@@ -253,14 +253,13 @@ export default function HomeV2() {
 
       <section id="services" className="border-b border-[#e4ece1] bg-white py-24">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="mb-10">
-            <div className="max-w-2xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-green">What $197 A Month Buys</p>
-              <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-text-900 md:text-5xl">
-                <span className="block">The whole system.</span>
-                <span className="block">One price.</span>
-              </h2>
-            </div>
+          <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-baseline md:justify-between md:gap-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-green md:shrink-0">What $197/month buys</p>
+            <h2 className="text-4xl font-black tracking-[-0.04em] text-text-900 md:whitespace-nowrap md:text-5xl">
+              <span className="block md:inline">The whole system.</span>
+              {' '}
+              <span className="block md:ml-3 md:inline">One price.</span>
+            </h2>
           </div>
 
           <div className="mb-14 grid gap-5 md:grid-cols-3" aria-label="Website and lead-system cost comparison">
