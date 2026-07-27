@@ -253,7 +253,7 @@ export default function HomeV2() {
 
       <section id="services" className="border-b border-[#e4ece1] bg-white py-24">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="mb-14 grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-12">
+          <div className="mb-10">
             <div className="max-w-2xl">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-green">What $197 A Month Buys</p>
               <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-text-900 md:text-5xl">
@@ -261,41 +261,45 @@ export default function HomeV2() {
                 <span className="block">One price.</span>
               </h2>
             </div>
+          </div>
 
-            <div className="rounded-[1.8rem] border border-[#dfe8db] bg-[#f8fbf7] p-5 md:p-6" aria-label="Website and lead-system cost comparison">
-              <div className="flex items-center gap-4 border-b border-[#dde6da] pb-4">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-text-300 text-text-400" aria-label="Not the BTTY option">
-                  <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-                    <circle cx="12" cy="12" r="8" />
-                    <path d="m6.4 17.6 11.2-11.2" />
-                  </svg>
-                </span>
-                <p className="text-sm text-text-600"><span className="font-bold text-text-900">Traditional agency</span> <span className="mx-1 text-text-300">·</span> typically <span className="font-bold">$2,000+/month</span></p>
-              </div>
+          <div className="mb-14 grid gap-5 md:grid-cols-3" aria-label="Website and lead-system cost comparison">
+            <div className="relative min-h-56 overflow-hidden rounded-[1.8rem] border border-[#e4e8e2] bg-[#f7f8f6] p-7" aria-label="Traditional agency, typically $2,000 or more per month, not the BTTY option">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-text-400">Typical market option</p>
+              <h3 className="mt-5 text-xl font-bold text-text-900">Traditional agency</h3>
+              <p className="mt-3 text-3xl font-black tracking-[-0.04em] text-text-700">$2,000+/month</p>
+              <span className="sr-only">Not the BTTY option.</span>
+              <svg viewBox="0 0 160 160" className="pointer-events-none absolute inset-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 text-red-700" fill="none" stroke="currentColor" strokeWidth="9" aria-hidden="true">
+                <circle cx="80" cy="80" r="61" />
+                <path d="m37 123 86-86" />
+              </svg>
+            </div>
 
-              <div className="flex items-center gap-4 border-b border-[#dde6da] py-4">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-text-300 text-text-400" aria-label="Not the BTTY option">
-                  <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-                    <circle cx="12" cy="12" r="8" />
-                    <path d="m6.4 17.6 11.2-11.2" />
-                  </svg>
-                </span>
-                <p className="text-sm text-text-600"><span className="font-bold text-text-900">Custom website build</span> <span className="mx-1 text-text-300">·</span> often <span className="font-bold">$6,000+</span></p>
-              </div>
+            <div className="relative min-h-56 overflow-hidden rounded-[1.8rem] border border-[#e4e8e2] bg-[#f7f8f6] p-7" aria-label="Custom website build, often $6,000 or more, not the BTTY option">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-text-400">Typical market option</p>
+              <h3 className="mt-5 text-xl font-bold text-text-900">Custom website build</h3>
+              <p className="mt-3 text-3xl font-black tracking-[-0.04em] text-text-700">$6,000+</p>
+              <span className="sr-only">Not the BTTY option.</span>
+              <svg viewBox="0 0 160 160" className="pointer-events-none absolute inset-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 text-red-700" fill="none" stroke="currentColor" strokeWidth="9" aria-hidden="true">
+                <circle cx="80" cy="80" r="61" />
+                <path d="m37 123 86-86" />
+              </svg>
+            </div>
 
-              <div className="flex items-start gap-4 pt-4">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-green text-sm font-black text-white" aria-label="BTTY option">✓</span>
+            <div className="min-h-56 rounded-[1.8rem] border border-brand-green bg-[#eef8ed] p-7 shadow-[0_24px_70px_rgba(29,107,67,0.12)]" aria-label="BTTY option, $197 per month">
+              <div className="flex items-start gap-4">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-green text-base font-black text-white" aria-hidden="true">✓</span>
                 <div>
-                  <p className="text-lg font-black text-text-900">BTTY.ai — $197/month</p>
-                  <p className="mt-1 text-sm text-text-500">No commitment. No contract ever.</p>
-                  <a
-                    href="/scan"
-                    className="mt-4 inline-flex rounded-full bg-brand-green px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-green-light"
-                  >
-                    Grade my business now
-                  </a>
+                  <p className="text-xl font-black text-text-900">BTTY.ai — $197/month</p>
+                  <p className="mt-2 text-sm font-semibold text-text-600">No commitment. No contract ever.</p>
                 </div>
               </div>
+              <a
+                href="/scan"
+                className="mt-8 inline-flex rounded-full bg-brand-green px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-green-light"
+              >
+                Grade my business now
+              </a>
             </div>
           </div>
 
