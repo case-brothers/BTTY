@@ -147,8 +147,8 @@ export default function HomeV2() {
         </div>
 
         <div className="relative mx-auto max-w-6xl px-6 pb-18 pt-14 md:pb-24">
-          <div className="grid gap-14 md:grid-cols-[0.9fr_1.1fr] md:items-start lg:gap-16">
-            <div className="fade-up">
+          <div className="grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:items-start md:gap-x-14 md:gap-y-0 lg:gap-x-16">
+            <div className="fade-up md:col-start-1 md:row-start-1">
               <div className="mb-7 inline-flex items-center rounded-full border border-[#d9e8d5] bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-green shadow-[0_10px_30px_rgba(23,27,23,0.05)]">
                 Better Today Than Yesterday
               </div>
@@ -158,9 +158,20 @@ export default function HomeV2() {
                 <br />
                 <span className="text-brand-green">your customers can&apos;t either.</span>
               </h1>
+            </div>
 
-              <p className="mt-8 max-w-2xl text-lg leading-relaxed text-text-500 md:text-xl">
-                {'Run the free 60-second scan and see how your business looks to the people searching for what you do. If you do not like the answer, we fix it for $197 a month, and you see your new website before you pay a dime.'}
+            <figure className="fade-up delay-2 md:sticky md:top-28 md:col-start-2 md:row-span-2 md:row-start-1">
+              <img
+                src="/mason-electric-website-phone.png"
+                alt="Mason Electric mobile website with a branded service van, electrician, estimate button, electrical services, and local trust information"
+                className="mx-auto w-full max-w-[620px] rounded-[2rem] shadow-[0_30px_90px_rgba(29,107,67,0.14)]"
+              />
+              <figcaption className="sr-only">A customer-facing website example for Mason Electric.</figcaption>
+            </figure>
+
+            <div className="md:col-start-1 md:row-start-2">
+              <p className="max-w-2xl text-lg leading-relaxed text-text-500 md:mt-8 md:text-xl">
+                {'Run the free 60-second scan and see how your business looks to the people searching for what you do. Then watch BTTY turn the findings into an improved website preview in about 35 seconds. If you want the complete system, it is $197 a month—and you see the preview before you pay a dime.'}
               </p>
 
               <LeadStory />
@@ -187,15 +198,6 @@ export default function HomeV2() {
                 <div className="rounded-full bg-[#f4f7f3] px-4 py-2">$197 a month, everything included</div>
               </div>
             </div>
-
-            <figure className="fade-up delay-2 md:sticky md:top-28">
-              <img
-                src="/mason-electric-website-phone.png"
-                alt="Mason Electric mobile website with a branded service van, electrician, estimate button, electrical services, and local trust information"
-                className="mx-auto w-full max-w-[620px] rounded-[2rem] shadow-[0_30px_90px_rgba(29,107,67,0.14)]"
-              />
-              <figcaption className="sr-only">A customer-facing website example for Mason Electric.</figcaption>
-            </figure>
           </div>
         </div>
       </section>
