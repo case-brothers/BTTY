@@ -7,7 +7,9 @@ const paymentUrl = 'https://link.fastpaydirect.com/payment-link/6a620ab5a655fa0b
 
 export default function VideoPage({ booked }: VideoPageProps) {
   const videoFile = booked ? '/btty-postbooking.mp4' : '/btty-nurture.mp4'
-  const captionsFile = booked ? '/btty-postbooking-captions.srt' : '/btty-nurture-captions.srt'
+  // Must be WebVTT. The <track> element ignores .srt silently, which left the
+  // caption track loading zero cues while looking fine in the markup.
+  const captionsFile = booked ? '/btty-postbooking-captions.vtt' : '/btty-nurture-captions.vtt'
 
   return (
     <main className="min-h-screen bg-surface-100 px-6 py-12 text-text-900 md:py-20">
