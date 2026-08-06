@@ -14,6 +14,17 @@
   status = 301
   force = true
 
+# The video's closing line sends people to btty.ai/call. Without this rule the
+# SPA catch-all below serves the homepage for that path, so the visitor lands on
+# a page with no booking on it and quietly leaves. 302 rather than 301 because
+# the calendar id can change; a cached permanent redirect would strand people on
+# a dead calendar with no way to fix it from our side.
+[[redirects]]
+  from = "/call"
+  to = "https://link.btty.ai/widget/booking/ANIqkqlsUOfycji0w2QZ"
+  status = 302
+  force = true
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

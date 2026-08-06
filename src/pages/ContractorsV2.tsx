@@ -185,6 +185,12 @@ export default function ContractorsV2() {
               See how it works
             </a>
           </div>
+          <a
+            href="https://link.fastpaydirect.com/payment-link/6a620ab5a655fa0b802a5c31"
+            className="mt-5 inline-block text-sm font-semibold text-text-500 underline underline-offset-4 hover:text-brand-green"
+          >
+            Already know? Start now for $197 a month.
+          </a>
         </div>
       </section>
 

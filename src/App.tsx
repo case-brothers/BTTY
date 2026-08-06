@@ -13,6 +13,7 @@ import Contractors from './pages/ContractorsV2'
 import Scan from './pages/ScanRedirect'
 import Privacy from './pages/PrivacyV2'
 import Terms from './pages/TermsV2'
+import VideoPage from './pages/VideoPage'
 
 function ScrollManager() {
   const { pathname, hash } = useLocation()
@@ -37,14 +38,21 @@ function ScrollManager() {
 }
 
 export default function App() {
+  const { pathname } = useLocation()
+  const isVideoPage = pathname === '/video' || pathname === '/intro'
+
   useEffect(() => {
-    document.title = 'BTTY | Websites That Get You Found'
-  }, [])
+    document.title = pathname === '/video'
+      ? 'BTTY | See What We Build'
+      : pathname === '/intro'
+        ? 'BTTY | Before We Talk'
+        : 'BTTY | Websites That Get You Found'
+  }, [pathname])
 
   return (
     <div className="flex min-h-screen flex-col">
       <ScrollManager />
-      <Header />
+      {!isVideoPage ? <Header /> : null}
       <main className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -58,10 +66,12 @@ export default function App() {
           <Route path="/scan" element={<Scan />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/video" element={<VideoPage booked={false} />} />
+          <Route path="/intro" element={<VideoPage booked />} />
         </Routes>
       </main>
-      <BettyAssistant />
-      <Footer />
+      {!isVideoPage ? <BettyAssistant /> : null}
+      {!isVideoPage ? <Footer /> : null}
     </div>
   )
 }
