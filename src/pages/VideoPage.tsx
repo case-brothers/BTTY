@@ -9,7 +9,9 @@ export default function VideoPage({ booked }: VideoPageProps) {
   const videoFile = booked ? '/btty-postbooking.mp4' : '/btty-nurture.mp4'
   // Must be WebVTT. The <track> element ignores .srt silently, which left the
   // caption track loading zero cues while looking fine in the markup.
-  const captionsFile = booked ? '/btty-postbooking-captions.vtt' : '/btty-nurture-captions.vtt'
+  // No captions for the booked video: it was replaced in Oct 2026 and the old
+  // caption track no longer matches the new recording.
+  const captionsFile: string | null = booked ? null : '/btty-nurture-captions.vtt'
 
   return (
     <main className="min-h-screen bg-surface-100 px-6 py-12 text-text-900 md:py-20">
@@ -25,7 +27,9 @@ export default function VideoPage({ booked }: VideoPageProps) {
           poster="/btty-video-poster.jpg"
         >
           <source src={videoFile} type="video/mp4" />
-          <track kind="captions" src={captionsFile} srcLang="en" label="English captions" default />
+          {captionsFile ? (
+            <track kind="captions" src={captionsFile} srcLang="en" label="English captions" default />
+          ) : null}
           Your browser does not support the video tag.
         </video>
 
