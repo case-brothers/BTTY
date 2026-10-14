@@ -1,12 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="18" fill="#1D6B43"/>
-  <rect x="6" y="6" width="52" height="52" rx="14" fill="url(#paint0_linear)" fill-opacity="0.22"/>
-  <path d="M20 17H35.5C42.1274 17 47.5 22.3726 47.5 29C47.5 35.6274 42.1274 41 35.5 41H28.5V50H20V17ZM28.5 24.5V33.5H34.75C37.2353 33.5 39.25 31.4853 39.25 29C39.25 26.5147 37.2353 24.5 34.75 24.5H28.5Z" fill="white"/>
-  <path d="M18 52H46" stroke="#DCEBDD" stroke-width="4" stroke-linecap="round"/>
-  <defs>
-    <linearGradient id="paint0_linear" x1="10" y1="8" x2="54" y2="56" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#8FE3AB"/>
-      <stop offset="1" stop-color="#DFF3DF"/>
-    </linearGradient>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- Arrow silhouette traced from btty-logo-green-arrow.png and fitted to a square. -->
+  <rect width="64" height="64" rx="14" fill="#101b17"/>
+  <path d="M6.00 54.79 L9.76 53.45 L15.65 50.71 L22.43 46.96 L28.49 42.95 L33.83 38.86 L34.04 38.59 L33.79 37.86 L34.15 38.46 L35.02 37.79 L37.41 35.67 L37.22 34.91 L37.62 35.57 L37.86 35.38 L42.89 30.42 L47.87 24.46 L47.17 22.60 L47.98 24.16 L47.41 22.74 L48.09 24.03 L47.64 22.89 L48.20 23.89 L48.21 23.21 L48.44 23.52 L48.62 23.36 L50.87 20.03 L50.98 19.73 L49.40 16.16 L57.97 9.21 L58.00 9.28 L57.29 18.98 L55.83 16.03 L53.22 21.46 L50.22 26.24 L47.36 29.34 L47.21 29.92 L46.90 29.81 L43.74 33.14 L39.70 36.79 L31.94 42.94 L27.27 46.13 L23.31 48.49 L13.92 52.78 L9.57 54.13 L6.00 54.79 Z" fill="#66db25"/>
 </svg>
