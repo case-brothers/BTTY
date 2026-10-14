@@ -14,6 +14,7 @@ import Scan from './pages/ScanRedirect'
 import Privacy from './pages/PrivacyV2'
 import Terms from './pages/TermsV2'
 import VideoPage from './pages/VideoPage'
+import Evenings from './pages/Evenings'
 
 function ScrollManager() {
   const { pathname, hash } = useLocation()
@@ -39,10 +40,12 @@ function ScrollManager() {
 
 export default function App() {
   const { pathname } = useLocation()
-  const isVideoPage = pathname === '/video' || pathname === '/intro'
+  const isVideoPage = pathname === '/video' || pathname === '/intro' || pathname.replace(/\/$/, '') === '/evenings'
 
   useEffect(() => {
-    document.title = pathname === '/video'
+    document.title = pathname.replace(/\/$/, '') === '/evenings'
+      ? 'Get Your Evenings Back | BTTY'
+      : pathname === '/video'
       ? 'BTTY | See What We Build'
       : pathname === '/intro'
         ? 'BTTY | Before We Talk'
@@ -56,6 +59,7 @@ export default function App() {
       <main className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/evenings" element={<Evenings />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/about" element={<About />} />
