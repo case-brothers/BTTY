@@ -111,6 +111,7 @@ export default async (req: Request) => {
   let email = ''
   let name = ''
   let company = ''
+  let adminCompany = ''
   let services = ''
   let message = ''
   try {
@@ -123,12 +124,14 @@ export default async (req: Request) => {
         email?: unknown
         name?: unknown
         company?: unknown
+        adminCompany?: unknown
         services?: unknown
         message?: unknown
       }
       email = typeof parsed.email === 'string' ? parsed.email.trim() : ''
       name = typeof parsed.name === 'string' ? parsed.name.trim() : ''
       company = typeof parsed.company === 'string' ? parsed.company.trim() : ''
+      adminCompany = typeof parsed.adminCompany === 'string' ? parsed.adminCompany.trim() : ''
       services = typeof parsed.services === 'string' ? parsed.services.trim() : ''
       message = typeof parsed.message === 'string' ? parsed.message.trim() : ''
     } else if (rawBody) {
@@ -178,7 +181,9 @@ export default async (req: Request) => {
 
   const customerName = name || 'there'
   const safeName = escapeHtml(customerName)
-  const safeCompany = escapeHtml(normalize(company))
+  // Contact form details belong in the admin alert, not the existing CRM handoff.
+  const alertCompany = adminCompany || company
+  const safeCompany = escapeHtml(normalize(alertCompany))
   const safeServices = escapeHtml(normalize(services))
   const safeMessage = escapeHtml(normalize(message))
 
@@ -232,7 +237,7 @@ export default async (req: Request) => {
     [
       `Name: ${normalize(name)}`,
       `Email: ${email}`,
-      `Company: ${normalize(company)}`,
+      `Company: ${normalize(alertCompany)}`,
       `Services: ${normalize(services)}`,
       '',
       `Message:`,

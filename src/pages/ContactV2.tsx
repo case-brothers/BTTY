@@ -37,8 +37,6 @@ export default function ContactV2() {
     const data = new FormData(form)
     data.set('services', selected.join(', '))
     data.set('subject', 'New BTTY inquiry')
-    const customerName = String(data.get('name') ?? '')
-    const customerEmail = String(data.get('email') ?? '')
 
     try {
       const response = await fetch('/', {
@@ -54,11 +52,17 @@ export default function ContactV2() {
       // Best-effort: send the customer an auto-reply via server-side function.
       // We don't block the UX if this fails.
       try {
-        const thankYouUrl = new URL('/api/thank-you', window.location.origin)
-        thankYouUrl.searchParams.set('name', customerName)
-        thankYouUrl.searchParams.set('email', customerEmail)
-
-        await fetch(thankYouUrl.toString(), { method: 'POST' })
+        await fetch('/api/thank-you', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: String(data.get('name') ?? ''),
+            email: String(data.get('email') ?? ''),
+            adminCompany: String(data.get('company') ?? ''),
+            services: String(data.get('services') ?? ''),
+            message: String(data.get('message') ?? ''),
+          }),
+        })
       } catch {
         // ignore
       }
