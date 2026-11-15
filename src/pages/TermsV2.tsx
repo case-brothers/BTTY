@@ -32,7 +32,7 @@ export default function TermsV2() {
           <div>
             <h2 className="mb-2 text-xl font-bold text-text-900">Subscription</h2>
             <p>
-              The subscription is billed monthly at the price stated when you sign up, currently $197 per month, everything included. There is no setup fee and no long term contract. You can cancel at any time and your service continues through the end of the period you have paid for. Your domain name is yours: if you leave, it goes with you.
+              The subscription is billed monthly at the price stated when you sign up, currently $397 per month, everything included. There is no setup fee and no long term contract. You can cancel at any time and your service continues through the end of the period you have paid for. Your domain name is yours: if you leave, it goes with you.
             </p>
           </div>
 

@@ -171,7 +171,7 @@ export default function HomeV2() {
 
             <div className="md:col-start-1 md:row-start-2">
               <p className="max-w-2xl text-lg leading-relaxed text-text-500 md:mt-8 md:text-xl">
-                {'Run the free 60-second scan and see how your business looks to the people searching for what you do. Then watch BTTY turn the findings into an improved website preview in about 35 seconds. If you want the complete system, it is $197 a month—and you see the preview before you pay a dime.'}
+                {'Run the free 60-second scan and see how your business looks to the people searching for what you do. Then watch BTTY turn the findings into an improved website preview in about 35 seconds. If you want the complete system, it is $397 a month—and you see the preview before you pay a dime.'}
               </p>
 
               <LeadStory />
@@ -195,7 +195,7 @@ export default function HomeV2() {
               <div className="mt-12 flex flex-wrap items-center gap-4 text-sm text-text-500">
                 <div className="rounded-full bg-[#edf7ed] px-4 py-2 font-semibold text-brand-green">No contract, ever</div>
                 <div className="rounded-full bg-[#f4f7f3] px-4 py-2">See your site before you pay</div>
-                <div className="rounded-full bg-[#f4f7f3] px-4 py-2">$197 a month, everything included</div>
+                <div className="rounded-full bg-[#f4f7f3] px-4 py-2">$397 a month, everything included</div>
               </div>
             </div>
           </div>
@@ -239,7 +239,7 @@ export default function HomeV2() {
 
             <div className="rounded-[2rem] border border-[#dfe8db] bg-white p-8 shadow-[0_30px_90px_rgba(29,107,67,0.08)]">
               <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-brand-green text-lg font-black text-white">3</div>
-              <h3 className="mb-3 text-2xl font-bold tracking-[-0.03em] text-text-900">Go live for $197 a month</h3>
+              <h3 className="mb-3 text-2xl font-bold tracking-[-0.03em] text-text-900">Go live for $397 a month</h3>
               <p className="text-sm leading-relaxed text-text-500">
                 Love it and we take it live: hosting, missed-call text-back, lead alerts, and unlimited small changes. No contract, cancel anytime.
               </p>
@@ -254,7 +254,7 @@ export default function HomeV2() {
       <section id="services" className="border-b border-[#e4ece1] bg-white py-24">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-baseline md:justify-between md:gap-10">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-green md:shrink-0">What $197/month buys</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-green md:shrink-0">What $397/month buys</p>
             <h2 className="text-4xl font-black tracking-[-0.04em] text-text-900 md:whitespace-nowrap md:text-5xl">
               <span className="block md:inline">The whole system.</span>
               {' '}
@@ -285,11 +285,11 @@ export default function HomeV2() {
               </svg>
             </div>
 
-            <div className="min-h-56 rounded-[1.8rem] border border-brand-green bg-[#eef8ed] p-7 shadow-[0_24px_70px_rgba(29,107,67,0.12)]" aria-label="BTTY option, $197 per month">
+            <div className="min-h-56 rounded-[1.8rem] border border-brand-green bg-[#eef8ed] p-7 shadow-[0_24px_70px_rgba(29,107,67,0.12)]" aria-label="BTTY option, $397 per month">
               <div className="flex items-start gap-4">
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-green text-base font-black text-white" aria-hidden="true">✓</span>
                 <div>
-                  <p className="text-xl font-black text-text-900">BTTY.ai — $197/month</p>
+                  <p className="text-xl font-black text-text-900">BTTY.ai — $397/month</p>
                   <p className="mt-2 text-sm font-semibold text-text-600">No commitment. No contract ever.</p>
                 </div>
               </div>
@@ -322,7 +322,7 @@ export default function HomeV2() {
             Then see your new website. Free.
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
-            Run the free scan, and if you do not like what it says, we build your new website and show it to you before you pay a dime. $197 a month when you are ready. No contract, ever.
+            Run the free scan, and if you do not like what it says, we build your new website and show it to you before you pay a dime. $397 a month when you are ready. No contract, ever.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <a
