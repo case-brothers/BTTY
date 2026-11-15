@@ -1,7 +1,7 @@
 import { startTransition, useState } from 'react'
 
 const services = [
-  'New website ($197/mo)',
+  'New website ($397/mo)',
   'Get found on Google',
   'Missed-call text-back',
   'Lead follow-up system',

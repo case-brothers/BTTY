@@ -60,7 +60,7 @@ const steps = [
   {
     number: '3',
     title: 'Love it or leave it',
-    body: 'If it beats what you have, we finish it and go live for $197 a month, everything included. If not, you owe nothing and we part friends.',
+    body: 'If it beats what you have, we finish it and go live for $397 a month, everything included. If not, you owe nothing and we part friends.',
   },
 ]
 
@@ -75,7 +75,7 @@ const faqs = [
   },
   {
     q: 'Is there a contract or setup fee?',
-    a: 'No setup fee and no contract. $197 a month, month to month, cancel anytime.',
+    a: 'No setup fee and no contract. $397 a month, month to month, cancel anytime.',
   },
 ]
 
@@ -172,7 +172,7 @@ export default function ContractorsV2() {
             He&apos;s just easier to find.
           </p>
           <p className="max-w-2xl text-lg leading-relaxed text-text-500">
-            {'BTTY builds websites and lead systems for roofers, HVAC, plumbers, electricians, and every trade that lives by a ringing phone. $197 a month. Everything included. No contract. And you see your site before you pay a dime.'}
+            {'BTTY builds websites and lead systems for roofers, HVAC, plumbers, electricians, and every trade that lives by a ringing phone. $397 a month. Everything included. No contract. And you see your site before you pay a dime.'}
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a
@@ -189,7 +189,7 @@ export default function ContractorsV2() {
             href="https://link.fastpaydirect.com/payment-link/6a620ab5a655fa0b802a5c31"
             className="mt-5 inline-block text-sm font-semibold text-text-500 underline underline-offset-4 hover:text-brand-green"
           >
-            Already know? Start now for $197 a month.
+            Already know? Start now for $397 a month.
           </a>
         </div>
       </section>
@@ -200,7 +200,7 @@ export default function ContractorsV2() {
             <div>
               <p className="mb-4 text-xs font-semibold uppercase tracking-wide text-brand-green">One Price. The Whole System.</p>
               <h2 className="text-4xl font-black tracking-tight text-text-900 md:text-5xl">
-                $197 a month.
+                $397 a month.
                 <br />
                 That&apos;s the whole offer.
               </h2>
