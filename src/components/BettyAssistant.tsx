@@ -81,14 +81,15 @@ export default function BettyAssistant() {
       <button
         type="button"
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-5 right-5 z-50 flex items-center gap-3 rounded-full border border-[#dfe8db] bg-white px-4 py-3 shadow-[0_18px_50px_rgba(29,107,67,0.16)] transition-transform hover:-translate-y-0.5"
+        aria-label="Ask Betty, your BTTY AI assistant"
+        className="fixed bottom-5 right-5 z-50 flex items-center gap-3 rounded-full border border-[#dfe8db] bg-white p-2 sm:px-4 sm:py-3 shadow-[0_18px_50px_rgba(29,107,67,0.16)] transition-transform hover:-translate-y-0.5"
       >
         <img
           src="/betty-ai-assistant.png"
           alt="Betty, the BTTY AI assistant"
           className="h-11 w-11 rounded-full object-cover ring-1 ring-[#dfe8db]"
         />
-        <div className="text-left">
+        <div className="hidden text-left sm:block">
           <p className="text-sm font-bold text-text-900">Ask Betty</p>
           <p className="text-xs text-text-500">Your BTTY AI assistant</p>
         </div>
