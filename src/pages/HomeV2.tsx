@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import MeetTheTeam from '../components/MeetTheTeam'
 
 const services = [
   { number: '01', title: 'Follow up. Win more work.', body: 'Help missed calls, estimate requests, and good conversations turn into next steps. Keep leads organized so people do not get forgotten.' },
@@ -48,6 +49,8 @@ export default function HomeV2() {
           <IntroVideo />
         </div>
       </section>
+
+      <MeetTheTeam />
 
       <section id="services" className="scroll-mt-24 border-b border-[#e4ece1] bg-white py-20">
         <div className="mx-auto max-w-6xl px-6">
