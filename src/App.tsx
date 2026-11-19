@@ -49,7 +49,11 @@ export default function App() {
       ? 'BTTY | See What We Build'
       : pathname === '/intro'
         ? 'BTTY | Before We Talk'
-        : 'BTTY | Websites That Get You Found'
+        : pathname === '/'
+          ? 'BTTY | Faith First. Practical Help for Your Business.'
+          : pathname === '/about'
+            ? 'About Tony and BTTY | Faith First'
+            : 'BTTY | Websites That Get You Found'
   }, [pathname])
 
   return (

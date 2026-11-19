@@ -27,14 +27,14 @@ export default function AboutV2() {
     <>
       <section className="border-b border-[#e4ece1] bg-[linear-gradient(180deg,#f7fbf5_0%,#ffffff_75%)] pb-20 pt-32">
         <div className="mx-auto max-w-6xl px-6">
-          <p className="mb-6 text-xs font-semibold uppercase tracking-[0.18em] text-brand-green">About BTTY</p>
+          <p className="mb-6 text-xs font-semibold uppercase tracking-[0.18em] text-brand-green">About BTTY · Faith First!</p>
           <h1 className="max-w-4xl text-5xl font-black leading-[0.98] tracking-[-0.05em] text-text-900 md:text-7xl">
-            We started with real operator problems.
+            Faith first.
             <br />
-            We turned them into practical systems.
+            Practical help for real people.
           </h1>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-text-500">
-            BTTY exists because owners need cleaner visibility, faster follow-up, and systems that keep working when the day gets chaotic.
+            “I belong to Jesus Christ, and so does this business.” Tony Case, founder of BTTY. That is where this work starts. We listen, tell you the truth about what we can do, and build things that help.
           </p>
         </div>
       </section>
@@ -44,7 +44,7 @@ export default function AboutV2() {
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-green">Built in the business</p>
             <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-text-900 md:text-5xl">
-              Roly Poly Indiana was the proving ground.
+              Real business was the proving ground.
             </h2>
             <div className="mt-8 overflow-hidden rounded-[1.8rem] border border-[#dfe8db] bg-[#f9fcf8] shadow-[0_24px_80px_rgba(29,107,67,0.08)]">
               <img src="/dashboard-portal.png" alt="BTTY systems dashboard built from real operations" className="w-full" />
@@ -125,16 +125,16 @@ export default function AboutV2() {
         <div className="mx-auto max-w-4xl px-6 text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/70">Looking for the next step</p>
           <h2 className="mt-6 text-4xl font-black tracking-[-0.04em] text-white md:text-6xl">
-            If you know your business is ready for better systems, we should talk.
+            What would you love to get off your plate?
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
-            We want to work with people who care, move fast, and are serious about building something stronger.
+            Tell me the one thing you’d love to take off your plate, and that’s where we’ll start. In person or remotely.
           </p>
           <a
-            href="tel:+18556422889"
+            href="/contact"
             className="mt-10 inline-block rounded-full bg-white px-8 py-4 text-sm font-semibold text-brand-dark transition-colors hover:bg-surface-200"
           >
-            Call Betty
+            Talk with Tony
           </a>
         </div>
       </section>

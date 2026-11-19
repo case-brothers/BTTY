@@ -2,9 +2,9 @@ import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 const nav = [
-  { label: 'Grade my business now', to: '/scan' },
-  { label: 'What You Get', to: '/contractors' },
-  { label: 'Contact', to: '/contact' },
+  { label: 'What We Do', to: '/#services' },
+  { label: 'Examples', to: '/#examples' },
+  { label: 'Websites', to: '/websites' },
 ]
 
 export default function HeaderV2() {
@@ -20,7 +20,7 @@ export default function HeaderV2() {
       <div className="mx-auto flex h-18 max-w-6xl items-center justify-between px-6">
         <Link to="/" className="flex items-center gap-3">
           <img src="/btty-logo-master.png" alt="BTTY logo" className="h-10 w-auto md:h-11" />
-          <div className="leading-none">
+          <div className="hidden leading-none lg:block">
             <div className="mt-1 text-[11px] font-medium uppercase tracking-[0.16em] text-text-400">
               Better Today Than Yesterday
             </div>
@@ -41,12 +41,10 @@ export default function HeaderV2() {
           ))}
 
           <a
-            href="https://api.leadconnectorhq.com/widget/booking/ANIqkqlsUOfycji0w2QZ"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/contact"
             className="rounded-full bg-brand-dark px-6 py-3 text-[15px] font-semibold text-white transition-colors hover:bg-brand-black"
           >
-            Book a Call
+            Contact Tony
           </a>
         </nav>
 
@@ -54,6 +52,7 @@ export default function HeaderV2() {
           className="text-text-500 hover:text-text-900 md:hidden"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
+          aria-expanded={open}
         >
           <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {open ? (
@@ -79,13 +78,11 @@ export default function HeaderV2() {
               </Link>
             ))}
             <a
-              href="https://api.leadconnectorhq.com/widget/booking/ANIqkqlsUOfycji0w2QZ"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/contact"
               onClick={() => setOpen(false)}
               className="rounded-2xl bg-brand-dark px-6 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-brand-black"
             >
-              Book a Call
+              Contact Tony
             </a>
           </div>
         </div>
