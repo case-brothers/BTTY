@@ -15,7 +15,7 @@ function IntroVideo() {
           <iframe className="absolute inset-0 h-full w-full" src="https://www.youtube-nocookie.com/embed/Yt0kXfPP-Cc?playsinline=1&rel=0" title="Tony Case introduces BTTY: Tell me what to get off your plate" allow="encrypted-media; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
         ) : (
           <button type="button" onClick={() => setPlaying(true)} className="group absolute inset-0 h-full w-full text-white focus-visible:outline-4 focus-visible:outline-offset-[-6px] focus-visible:outline-white" aria-label="Load Tony’s BTTY introduction video">
-            <img src="https://i.ytimg.com/vi/Yt0kXfPP-Cc/hqdefault.jpg" alt="" className="absolute inset-0 h-full w-full object-contain" />
+            <img src="https://i.ytimg.com/vi/Yt0kXfPP-Cc/hqdefault.jpg" alt="" className="absolute inset-0 h-full w-full object-cover" />
             <span className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent" />
             <span className="relative inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-2xl text-brand-green shadow-xl group-hover:scale-105 motion-reduce:transform-none" aria-hidden="true">▶</span>
             <span className="absolute inset-x-5 bottom-8 text-center text-lg font-bold">Meet Tony. Meet BTTY.</span>

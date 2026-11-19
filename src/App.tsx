@@ -53,7 +53,9 @@ export default function App() {
           ? 'BTTY | Faith First. Practical Help for Your Business.'
           : pathname === '/about'
             ? 'About Tony and BTTY | Faith First'
-            : 'BTTY | Websites That Get You Found'
+            : pathname === '/contact'
+              ? 'Contact Tony | BTTY. Faith First.'
+              : 'BTTY | Websites That Get You Found'
   }, [pathname])
 
   return (
