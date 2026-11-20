@@ -1,1 +1,4 @@
+# Scripture cards link: btty.ai/cards -> newsletter signup, tagged for Beehiiv attribution.
+# Must stay ABOVE the SPA catch-all (first match wins).
+/cards    https://newsletter.btty.ai/?src=cards    301!
 /*    /index.html   200
